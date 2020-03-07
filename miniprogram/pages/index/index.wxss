@@ -2,25 +2,34 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0 40rpx;
   background-color: #2B2B48;
+  font-size: 15px;
   color: #BBB;
 }
 
 .operate-bar {
-  padding: 15rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 13px;
 }
 
 .code-type {
   flex: 1;
+  padding: 15px 15px 0;
   overflow: hidden;
+}
+
+.operate-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .operate-btn {
   display: inline-block;
-  width: 30rpx;
-  height: 30rpx;
-  margin-right: 10rpx;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
   border-radius: 50%;
 }
 

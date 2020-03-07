@@ -1,6 +1,6 @@
 <view class="main-wrapper">
-  <!-- 日期 -->
-  <view class="login-time">Last login: {{ startDate }} on ttys001</view>
+  <!-- TODO:日期 转移到 terminal 里 -->
+  <!-- <view class="login-time">Last login: {{ startDate }} on ttys001</view> -->
   <view class="code-wrapper">
     <rich-text nodes="{{highlightedCode}}"></rich-text>
   </view>

@@ -1,8 +1,12 @@
 <view class="main-wrapper">
+  <!-- 关闭、最大化、最小化 -->
   <view class="operate-bar">
-    <view class="operate-btn close"></view>
-    <view class="operate-btn min"></view>
-    <view class="operate-btn max"></view>
+    <view class="operate-wrapper">
+      <view class="operate-btn close"></view>
+      <view class="operate-btn min"></view>
+      <view class="operate-btn max"></view>
+    </view>
   </view>
+  <!-- 自动代码区 -->
   <code-type class="code-type" />
 </view>

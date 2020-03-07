@@ -19,7 +19,7 @@ Component({
         data.currentCode,
         Prism.languages.javascript
       )
-      const codeWithCursor = `${code}<span style="opacity:${data.isCursorVisible}"> ▍</span>`
+      const codeWithCursor = `<pre></code>${code}<span style="opacity:${data.isCursorVisible}"> ▍</span></code></pre>`
       return codeWithCursor
     }
   },
