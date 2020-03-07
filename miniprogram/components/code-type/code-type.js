@@ -1,6 +1,5 @@
 const computedBehavior = require('miniprogram-computed')
 const Prism = require('prismjs')
-const raf = require('../../utils/raf')
 const mockcode = require('../../mock/code')
 
 Component({
@@ -11,6 +10,7 @@ Component({
     code: mockcode.code,
     currentCode: '',
     isCursorVisible: 1,
+    bottomEle: ''
   },
 
   computed: {
@@ -25,13 +25,14 @@ Component({
   },
 
   lifetimes: {
-    ready: function() {
+    created: function() {
       this.progressivelyTyping()
     }
   },
 
   methods: {
     // 代码输入
+    // TODO:自动滚动到底部
     progressivelyTyping() {
       return new Promise((resolve) => {
         let count = 0, typingCount = 0, typing
@@ -40,25 +41,26 @@ Component({
           let randomNumber = Math.round(Math.random() * 6)
           // 模拟打字的随机速度
           if(count % 2 === 0 && randomNumber % 4 === 0){
-            this.setData({
-              currentCode: this.data.code.substring(0, typingCount)
-            })
+            this.setData({ currentCode: this.data.code.substring(0, typingCount) })
             typingCount++
           }
+
           // 大约每 24 帧光标闪动一次
           if(count % 24 === 0){
             this.data.isCursorVisible = this.data.isCursorVisible === 0 ? 1 : 0
           }
           count++
-          if (typingCount <= this.data.code.length) {
-            typing = raf.requestAnimationFrame(step)
-          } else {
+
+          if (typingCount <= this.data.code.length) typing = setTimeout(() => { step() }, 0)
+          else {
             resolve()
-            this.data.canExecute = true
-            raf.cancelAnimationFrame(typing)
+            // 隐藏光标
+            this.setData({ isCursorVisible: 0 })
+            clearTimeout(typing)
           }
         }
-        typing = raf.requestAnimationFrame(step)
+
+        typing = setTimeout(() => { step() }, 0)
       })
     }
   }
