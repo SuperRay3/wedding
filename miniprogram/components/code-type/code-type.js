@@ -7,6 +7,7 @@ Component({
   behaviors: [computedBehavior],
 
   data: {
+    startDate: (new Date()).toDateString(),
     code: mockcode.code,
     currentCode: '',
     isCursorVisible: 1,

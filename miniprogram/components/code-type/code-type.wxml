@@ -1,7 +1,7 @@
-<view>
-  <pre>
-    <code>
-      <rich-text nodes="{{highlightedCode}}"></rich-text>
-    </code>
-  </pre>
+<view class="main-wrapper">
+  <!-- 日期 -->
+  <view class="login-time">Last login: {{ startDate }} on ttys001</view>
+  <view class="code-wrapper">
+    <rich-text nodes="{{highlightedCode}}"></rich-text>
+  </view>
 </view>

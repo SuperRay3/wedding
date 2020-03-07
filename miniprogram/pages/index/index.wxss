@@ -1,0 +1,38 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 40rpx;
+  background-color: #2B2B48;
+  color: #BBB;
+}
+
+.operate-bar {
+  padding: 15rpx 0;
+}
+
+.code-type {
+  flex: 1;
+  overflow: hidden;
+}
+
+.operate-btn {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
+
+.operate-btn.close {
+  background-color: #FC615D;
+}
+
+.operate-btn.min {
+  background-color: #FDBC40;
+}
+
+.operate-btn.max {
+  background-color: #34C84A;
+}
+
