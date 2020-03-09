@@ -4,16 +4,17 @@ class StayBttomP extends Publiser {
   lastcodeContentH = 0 // 代码区域上一次的高
   codeContentH = 0 // 代码区域最新的高
 
-  constructor(context, scrollViewH) {
+  constructor(context, scrollViewH, selector) {
     super()
     // // 引用的上下文，也就是组件
     this.context = context
     this.scrollViewH = scrollViewH
+    this.selector = selector
     this.s = this.context.createSelectorQuery()  
   }
 
   checkScroll() {
-    this.s.select('#code-content').boundingClientRect(rect => {
+    this.s.select(this.selector).boundingClientRect(rect => {
       this.codeContentH = rect.height
     }).exec()
 
@@ -33,17 +34,18 @@ class StayBttomP extends Publiser {
 }
 
 class StayBttomO extends Observer {
-  constructor(context) {
+  constructor(context, scrollTopBind) {
     super()
     // 引用的上下文，也就是组件
     this.context = context
+    this.scorllTopBind = scrollTopBind
   }
 
   update(scrollTop) {
+    const newData = {}
+    newData[this.scorllTopBind] = scrollTop
     setTimeout(() => {
-      this.context.setData({
-        codeContentScrollTop: scrollTop
-      })
+      this.context.setData(newData)
     })
   }
 }

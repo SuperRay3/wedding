@@ -31,8 +31,8 @@ Component({
 
   lifetimes: {
     created: function() {
-      stayBtP = new StayBttomP(this, 0)
-      stayBtO = new StayBttomO(this)
+      stayBtP = new StayBttomP(this, 0, '#code-content')
+      stayBtO = new StayBttomO(this, 'codeContentScrollTop')
       stayBtP.add(stayBtO)
       this.progressivelyTyping()
     },
