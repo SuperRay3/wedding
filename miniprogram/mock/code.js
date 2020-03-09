@@ -23,7 +23,34 @@ module.exports = {
 1  // 今天心情好
 2  // 我给你表演写代码
 3  // 我要开始写啦
-4  const { 😆, 🤗 } = 🌎;`,
+4  const { 😆, 🤗 } = 🌎;
+5  😆.say('嫁给我吧!❤️');
+6  🤗.response('好的，只要你请我吃🍉！');
+7  Utils.marry(😆,🤗);
+8  Utils.generateInvitation(😆,🤗);
+9  // 好了我写完了
+10 // 我要开始运行啦
+1  // 今天心情好
+2  // 我给你表演写代码
+3  // 我要开始写啦
+4  const { 😆, 🤗 } = 🌎;
+5  😆.say('嫁给我吧!❤️');
+6  🤗.response('好的，只要你请我吃🍉！');
+7  Utils.marry(😆,🤗);
+8  Utils.generateInvitation(😆,🤗);
+9  // 好了我写完了
+10 // 我要开始运行啦
+1  // 今天心情好
+2  // 我给你表演写代码
+3  // 我要开始写啦
+4  const { 😆, 🤗 } = 🌎;
+5  😆.say('嫁给我吧!❤️');
+6  🤗.response('好的，只要你请我吃🍉！');
+7  Utils.marry(😆,🤗);
+8  Utils.generateInvitation(😆,🤗);
+9  // 好了我写完了
+10 // 我要开始运行啦
+`,
   executions: [{
     name:'初始化',
     time: '',

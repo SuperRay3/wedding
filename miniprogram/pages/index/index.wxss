@@ -11,12 +11,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3px 13px;
+  padding: 3px 15px 3px 18px;
 }
 
 .code-type {
   flex: 1;
-  padding: 15px;
+  padding: 18px;
   overflow: hidden;
 }
 
