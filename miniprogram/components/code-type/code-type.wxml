@@ -1,8 +1,7 @@
 <view class="main-wrapper">
   <!-- TODO:日期 转移到 terminal 里 -->
   <!-- <view class="login-time">Last login: {{ startDate }} on ttys001</view> -->
-  <scroll-view class="code-wrapper" scroll-y="true" scroll-into-view="{{bottomEle}}" scroll-with-animation="true">
-    <rich-text nodes="{{highlightedCode}}"></rich-text>
-    <view id="bottomAnchor" style="height: 0;"></view>
+  <scroll-view id="scroll-view" class="code-wrapper" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="true">
+    <rich-text id="code-content" nodes="{{highlightedCode}}"></rich-text>
   </scroll-view>
 </view>
