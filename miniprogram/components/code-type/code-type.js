@@ -1,11 +1,10 @@
 const computedBehavior = require('miniprogram-computed')
 const Prism = require('prismjs')
 const mockcode = require('../../mock/code')
+const { StayBttomP, StayBttomO } = require('../../utils/stayBottom')
 
-let scrollViewH = 0  // 滚动容器的高
-let lastcodeContentH = 0 // 代码区域上一次的高
-let codeContentH = 0 // 代码区域最新的高
-let s = null         // 元素选择器
+let stayBtP = null
+let stayBtO = null
 
 Component({
   behaviors: [computedBehavior],
@@ -32,19 +31,20 @@ Component({
 
   lifetimes: {
     created: function() {
-      s = this.createSelectorQuery()
+      stayBtP = new StayBttomP(this, 0)
+      stayBtO = new StayBttomO(this)
+      stayBtP.add(stayBtO)
       this.progressivelyTyping()
     },
     ready: function() {
-      s.select('#scroll-view').boundingClientRect(function(rect){
-        scrollViewH = rect.height
+      stayBtP.s.select('#scroll-view').boundingClientRect(function(rect){
+        stayBtP.scrollViewH = rect.height
       }).exec()
     }
   },
 
   methods: {
     // 代码输入
-    // TODO:自动滚动到底部
     progressivelyTyping() {
       return new Promise((resolve) => {
         let count = 0, typingCount = 0, typing
@@ -56,21 +56,7 @@ Component({
             this.setData({ currentCode: this.data.code.substring(0, typingCount) })
             typingCount++
 
-            s.select('#code-content').boundingClientRect(function(rect){
-              codeContentH = rect.height
-            }).exec()
-            
-            if (codeContentH > scrollViewH) {
-              if (codeContentH > lastcodeContentH) {
-                setTimeout(() => {
-                  this.setData({
-                    codeContentScrollTop: codeContentH - scrollViewH
-                  })
-                }, 0)
-                lastcodeContentH = codeContentH
-              }
-              
-            }
+            stayBtP.checkScroll()
           }
 
           // 大约每 24 帧光标闪动一次
@@ -79,7 +65,7 @@ Component({
           }
           count++
 
-          if (typingCount <= this.data.code.length) typing = setTimeout(() => { step() }, 0)
+          if (typingCount <= this.data.code.length) typing = setTimeout(() => { step() }, 16)
           else {
             resolve()
             // 隐藏光标
@@ -88,7 +74,7 @@ Component({
           }
         }
 
-        typing = setTimeout(() => { step() }, 0)
+        typing = setTimeout(() => { step() }, 16)
       })
     }
   }
