@@ -6,8 +6,10 @@ Page({
   },
 
   showIndex: function() {
-    this.setData({
-      showIndex: true
-    })
+    setTimeout(() => {
+      this.setData({
+        showIndex: true
+      })
+    }, 800)
   }
 })

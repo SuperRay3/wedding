@@ -11,5 +11,31 @@
 }
 
 .loading-wrapper {
+  width: 90%;
+}
 
+.container {
+  text-align: center;
+}
+
+.prompt {
+  font-size: 40px;
+  font-weight: 100;
+  color: #f60d54;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  color: white;
+  font-size: 35px;
+}
+
+.bar {
+  margin-top: 10px;
+  background: #f60d54;
+  border: none;
+  height: 1px;
 }

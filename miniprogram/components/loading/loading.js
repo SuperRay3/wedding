@@ -18,15 +18,12 @@ Component({
   lifetimes: {
     ready: function() {
       const loading = new Loading({
+        time: 10000,
         tickCB: (data) => {
           this.setData(data)
           this.getLoadingTxt(data.currTime)
         },
         finished: () => {
-          this.setData({
-            currTimeInd: 0
-          })
-
           this.triggerEvent('customevent', {})
         }
       })
@@ -39,7 +36,7 @@ Component({
       const loadingTxt = this.data.loadingTxt
       let currTimeInd = this.data.currTimeInd
 
-      if (currTime > loadingTxt[currTimeInd].time) {
+      if (currTimeInd < (loadingTxt.length - 1) && currTime > loadingTxt[currTimeInd].time) {
         this.setData({
           currTimeInd: ++currTimeInd
         })
