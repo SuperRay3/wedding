@@ -1,0 +1,6 @@
+<view class="main-wrapper">
+  {{currVal}} / {{currTime}}
+  <view class="loading-wrapper">
+    {{currLoadingTxt.value}}
+  </view>
+</view>

@@ -2,8 +2,12 @@ const app = getApp()
 
 Page({
   data: {
+    showIndex: false
   },
 
-  onLoad: function() {
+  showIndex: function() {
+    this.setData({
+      showIndex: true
+    })
   }
 })

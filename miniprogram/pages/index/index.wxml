@@ -8,5 +8,8 @@
     </view>
   </view>
   <!-- 自动代码区 -->
-  <code-type class="code-type" />
+  <code-type wx:if="{{showIndex}}" class="code-type" />
+
+  <!-- loading -->
+  <loading wx:if="{{!showIndex}}" bindcustomevent="showIndex"></loading>
 </view>
