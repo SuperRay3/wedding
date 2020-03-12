@@ -2,7 +2,8 @@ const app = getApp()
 
 Page({
   data: {
-    showIndex: false
+    showIndex: true,
+    showTerminal: false
   },
 
   onLoad: function(){

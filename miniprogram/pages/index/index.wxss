@@ -46,3 +46,7 @@
   background-color: #34C84A;
 }
 
+.app-name {
+  font-size: 14px;
+}
+

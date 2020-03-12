@@ -15,12 +15,15 @@ class Terminal {
     this.initDate = (new Date()).toDateString()
   }
 
-  toggleExtand() {
+  toggleExtand(cb) {
     this.isExtand = !this.isExtand
+    if (cb) cb(this.isExtand)
   }
 
-  toggleHide() {
+  toggleHide(cb) {
     this.isHide = !this.isHide
+    if (cb) cb(this.isHide)
   }
-
 }
+
+module.exports = Terminal

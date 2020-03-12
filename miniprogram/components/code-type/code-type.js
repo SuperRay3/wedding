@@ -2,6 +2,7 @@ const computedBehavior = require('miniprogram-computed')
 const Prism = require('prismjs')
 const mockcode = require('../../mock/code')
 const { StayBttomP, StayBttomO } = require('../../utils/stayBottom')
+const app = getApp()
 
 let stayBtP = null
 let stayBtO = null
@@ -69,6 +70,8 @@ Component({
             // 隐藏光标
             this.setData({ isCursorVisible: 0 })
             clearTimeout(typing)
+            // 打开 terminal
+            app.event.emit('showTerminal', true)
           }
         }
 

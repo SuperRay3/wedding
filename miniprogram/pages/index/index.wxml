@@ -6,13 +6,14 @@
       <view class="operate-btn min"></view>
       <view class="operate-btn max"></view>
     </view>
+    <text class="app-name">Love Studio Code</text>
   </view>
   <!-- 自动代码区 -->
   <code-type wx:if="{{showIndex}}" class="code-type" />
 
   <!-- loading -->
-  <loading wx:if="{{!showIndex}}"></loading>
+  <!-- <loading wx:if="{{!showIndex}}"></loading> -->
 
   <!-- terminal -->
-  <terminal wx:if="{{showIndex}}" />
+  <terminal />
 </view>

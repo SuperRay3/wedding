@@ -1,15 +1,15 @@
-<view class="terminal-wrapper">
+<view class="terminal-wrapper {{show ? 'show' : ''}} {{extand ? 'extand' : ''}}">
   <view class="content-wrapper">
     <view class="opt-bar">
       <view class="left-area">
         <view class="text active">TERMINAL</view>
       </view>
       <view class="right-area">
-        <view class="icon iconfont iconzhankai"></view>
+        <view class="icon iconfont iconzhankai {{extand ? 'extand' : ''}}" bind:tap="extandTerminal"></view>
       </view>
     </view>
     <scroll-view class="terminal-content" scroll-y="true">
-      
+      <view class="login-date">Last login: {{terminalObj.initDate}} on ttys001</view>
     </scroll-view>
     <view class="input-area">
       <!-- 命令输入 -->
@@ -20,7 +20,7 @@
       <!-- 操作按钮 -->
       <view class="btn-wrapper">
         <view class="btn clear">清空</view>
-        <view class="btn hide">隐藏</view>
+        <view class="btn hide" bind:tap="hideTerminal">隐藏</view>
       </view>
     </view>
   </view>
