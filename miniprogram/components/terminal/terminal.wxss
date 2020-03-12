@@ -1,6 +1,3 @@
-/* 代码高亮样式 */
-@import "/style/prism-okaidia.wxss";
-
 /* 图标 */
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1583986683603'); /* IE9 */

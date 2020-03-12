@@ -8,7 +8,6 @@ let stayBtO = null
 
 Component({
   behaviors: [computedBehavior],
-
   data: {
     code: mockcode.code,
     currentCode: '',

@@ -1,5 +1,8 @@
 //app.js
+const eventEmitter = require('./class/eventEmitter')
+
 App({
+  event: new eventEmitter(),
   onLaunch: function () {
     
     if (!wx.cloud) {

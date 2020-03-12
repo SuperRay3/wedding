@@ -2,14 +2,20 @@ const app = getApp()
 
 Page({
   data: {
-    showIndex: true
+    showIndex: false
   },
 
-  showIndex: function() {
-    setTimeout(() => {
-      this.setData({
-        showIndex: true
-      })
-    }, 800)
+  onLoad: function(){
+    app.event.on('showIndex', () => {
+      setTimeout(() => {
+        this.setData({
+          showIndex: true
+        })
+      }, 800)
+    })
+  },
+
+  onUnload: function(){
+    app.event.off('showIndex')
   }
 })

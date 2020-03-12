@@ -1,6 +1,7 @@
 const loadingTxt = require('./loadingTxt')
 const Loading = require('../../class/loading')
 const computedBehavior = require('miniprogram-computed')
+const app = getApp()
 
 Component({
   behaviors: [computedBehavior],
@@ -24,7 +25,7 @@ Component({
           this.getLoadingTxt(data.currTime)
         },
         finished: () => {
-          this.triggerEvent('customevent', {})
+          app.event.emit('showIndex')
         }
       })
       loading.start()
