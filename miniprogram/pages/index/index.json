@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "loading": "/components/loading/loading",
-    "code-type": "/components/code-type/code-type"
+    "code-type": "/components/code-type/code-type",
+    "terminal": "/components/terminal/terminal"
   }
 }

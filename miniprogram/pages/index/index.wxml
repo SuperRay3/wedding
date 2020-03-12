@@ -11,5 +11,8 @@
   <code-type wx:if="{{showIndex}}" class="code-type" />
 
   <!-- loading -->
-  <loading wx:if="{{!showIndex}}" bindcustomevent="showIndex"></loading>
+  <!-- <loading wx:if="{{!showIndex}}" bindcustomevent="showIndex"></loading> -->
+
+  <!-- terminal -->
+  <terminal bindcustomevent="codeStart" />
 </view>

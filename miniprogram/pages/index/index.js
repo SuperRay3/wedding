@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    showIndex: false
+    showIndex: true
   },
 
   showIndex: function() {
