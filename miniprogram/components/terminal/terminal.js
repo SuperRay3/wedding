@@ -1,6 +1,7 @@
 const computedBehavior = require('miniprogram-computed')
 const Terminal = require('../../class/terminal')
 const cmds = require('./cmd')
+const { formateDate } = require('../../utils/index')
 const app = getApp()
 
 Component({
@@ -73,11 +74,11 @@ Component({
     async stepOutputRst(steps) {
       let finalRst = []
       const exeStep = (step) => {
-        const duration = Math.random()*50+1000
+        const duration = Math.random()*50+250
         return new Promise(res => {
           setTimeout(() => {
             finalRst.push({
-              time: new Date().toLocaleTimeString(),
+              time: formateDate(+new Date(), 'hh:mm:ss'),
               duration: duration.toFixed(2),
               label: step.label
             })
@@ -92,6 +93,8 @@ Component({
       for (const step of steps) {
         await exeStep(step)
       }
+
+      app.event.emit('openInvitation')
     }
   }
 })

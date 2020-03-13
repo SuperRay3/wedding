@@ -4,6 +4,7 @@
   "usingComponents": {
     "loading": "/components/loading/loading",
     "code-type": "/components/code-type/code-type",
-    "terminal": "/components/terminal/terminal"
+    "terminal": "/components/terminal/terminal",
+    "invitation": "/components/invitation/invitation"
   }
 }

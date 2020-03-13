@@ -1,0 +1,13 @@
+<view class="wedding-invitation {{canOpen ? 'invitation-bounce' : ''}}">
+  <view class="invitation-container {{isOpening ? 'invitation-down' : ''}}">
+    <view class="invitation-cover">
+      <view class="cover-content {{isOpening ? 'invitation-up' : ''}}">
+        <view class="content-inside">
+        </view>
+      </view>
+      <view class="cover-inside-left {{isOpening ? 'opening' : ''}}"></view>
+      <view class="cover-inside-right {{isOpening ? 'opening' : ''}}"></view>
+      <image class="cover-inside-seal {{isOpening ? 'invitation-flight' : ''}}" src="../../images/seal.png" bind:tap="openInvitation" />
+    </view>
+  </view>
+</view>

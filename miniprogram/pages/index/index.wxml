@@ -16,4 +16,7 @@
 
   <!-- terminal -->
   <terminal />
+
+  <!-- invitation -->
+  <invitation />
 </view>
