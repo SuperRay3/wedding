@@ -8,11 +8,11 @@ class Terminal {
   initDate = '' // 初始化时间
   isHide = true // 面板是否隐藏
   isExtand = false // 面板是否最大化
-  userInfo = 'FaneverRay@❤️ ~ $ ' // 当前登录信息
+  userInfo = 'FaneverRay@fl ~ $ ' // 当前登录信息
 
 
   init() {
-    this.initDate = (new Date()).toDateString()
+    this.initDate = `Last login: ${(new Date()).toDateString()} on ttys001`
   }
 
   toggleExtand(cb) {
@@ -23,6 +23,54 @@ class Terminal {
   toggleHide(cb) {
     this.isHide = !this.isHide
     if (cb) cb(this.isHide)
+  }
+
+  getHistory() {
+    return this.history
+  }
+
+  // 新生成一条指令
+  genNewCmd() {
+    return new Promise(res => {
+      this.history.push({
+        cmd: '',
+        rst: '',
+        stamp: +new Date()
+      })
+      res(this)
+    })
+  }
+
+  // 输入指令内容
+  inputCmd(cmd) {
+    return new Promise(res => {
+      const length = this.history.length
+
+      this.history[length - 1].cmd = cmd
+
+      res(this)
+    })
+  }
+
+  // exec lastest cmd
+  exeLastCmd(cmds) {
+    return new Promise(res => {
+      if (this.history.length === 0) {
+        res(this)
+        return
+      }
+
+      const length = this.history.length
+      const lastCmd = this.history[length - 1]
+
+      const rst = cmds[lastCmd.cmd]
+
+      this.history[length - 1].rst = rst ? rst : '没有找到相应的命令'
+      
+      res(this)
+    })
+    
+    
   }
 }
 

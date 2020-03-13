@@ -110,6 +110,45 @@
   overflow-y: auto;
 }
 
+.terminal-content .login-date {
+  margin-bottom: 8px;
+}
+
+.terminal-content .cmds-wrapper {
+  margin-top: 3px;
+}
+
+.terminal-content .cmds-wrapper .user-info {
+  float: left;
+  margin-right: 5px;
+  color: rgb(0, 195, 8);
+}
+
+.terminal-content .cmds-wrapper .rst {
+  clear: left;
+}
+
+.cmds-wrapper .rst .step {
+  display: flex;
+  align-items: center;
+}
+
+.cmds-wrapper .rst .step .step-item {
+  margin-right: 8px;
+}
+
+.cmds-wrapper .rst .step .time {
+  color: rgb(102, 102, 102);
+}
+
+.cmds-wrapper .rst .step .label {
+  color: rgb(66, 152, 175);
+}
+
+.cmds-wrapper .rst .step .duration {
+  color: rgb(176, 70, 178);
+}
+
 .input-area {
   margin: 0 -10px;
 }
@@ -155,4 +194,12 @@
 
 .input-area .btn-wrapper .clear {
   border-right: 1px solid rgb(223, 223, 223);
+}
+
+/* terminal 显示隐藏按钮 */
+.terminal-switch {
+  position: fixed;
+  bottom: 50rpx;
+  right: 10px;
+  font-size: 32rpx;
 }

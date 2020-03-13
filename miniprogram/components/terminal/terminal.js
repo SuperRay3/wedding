@@ -1,5 +1,6 @@
 const computedBehavior = require('miniprogram-computed')
 const Terminal = require('../../class/terminal')
+const cmds = require('./cmd')
 const app = getApp()
 
 Component({
@@ -9,18 +10,45 @@ Component({
     extand: false
   },
 
-  computed: {
-
-  },
-
   lifetimes: {
     created: function() {
       app.event.on('showTerminal', (show) => {
         this.setData({
-          show,
-          terminalObj: new Terminal()
+          show
         })
-      }, 400)
+
+        setTimeout(() => {
+          this.setData({
+            terminalObj: new Terminal()
+          })
+        }, 1200)
+
+        setTimeout(() => {
+          this.data.terminalObj.genNewCmd().then(rst => {
+            this.setData({
+              terminalObj: rst
+            })
+          })
+        }, 1600)
+
+        setTimeout(() => {
+          // 初始化自动输入代码启动
+          this.data.terminalObj.inputCmd('npm run dev').then(rst => {
+            this.setData({
+              terminalObj: rst
+            })
+
+            // 运行指令
+            this.data.terminalObj.exeLastCmd(cmds).then(rst => {
+              this.setData({
+                terminalObj: rst
+              })
+              const steps = rst.history.slice(-1)[0].rst.steps
+              this.stepOutputRst(steps)
+            })
+          })
+        }, 1900)
+      })
     }
   },
 
@@ -39,6 +67,31 @@ Component({
           show: !isShow
         })
       })
+    },
+
+    // 渐进式输出 step 类型的结果
+    async stepOutputRst(steps) {
+      let finalRst = []
+      const exeStep = (step) => {
+        const duration = Math.random()*50+1000
+        return new Promise(res => {
+          setTimeout(() => {
+            finalRst.push({
+              time: new Date().toLocaleTimeString(),
+              duration: duration.toFixed(2),
+              label: step.label
+            })
+            this.setData({
+              stepCmd: finalRst
+            })
+            res()
+          }, duration)
+        })
+      }
+      
+      for (const step of steps) {
+        await exeStep(step)
+      }
     }
   }
 })
