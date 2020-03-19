@@ -15,6 +15,7 @@ Component({
       if (newVal) {
         if (newVal.direct === 'down') {
           this.closeInvitation()
+          app.event.emit('closeInvitaion')
         }
       }
     }

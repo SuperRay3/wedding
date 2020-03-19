@@ -35,7 +35,8 @@ class Terminal {
       this.history.push({
         cmd: '',
         rst: '',
-        stamp: +new Date()
+        stamp: +new Date(),
+        isExed: false
       })
       res(this)
     })
@@ -66,7 +67,8 @@ class Terminal {
       const rst = cmds[lastCmd.cmd]
 
       this.history[length - 1].rst = rst ? rst : '没有找到相应的命令'
-      
+      this.history[length - 1].isExed = true
+
       res(this)
     })
     

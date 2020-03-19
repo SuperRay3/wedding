@@ -50,6 +50,15 @@ Component({
           })
         }, 1900)
       })
+
+      // 监听关闭信封
+      app.event.on('closeInvitaion', () => {
+        this.data.terminalObj.genNewCmd().then(res => {
+          this.setData({
+            'terminalObj.history': res.history
+          })
+        })
+      })
     }
   },
 

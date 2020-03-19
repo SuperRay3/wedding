@@ -14,6 +14,7 @@
         <view class="cmd">
           <view class="user-info">{{terminalObj.userInfo}}</view>
           <view class="cmd-content">{{item.cmd}}</view>
+          <view class="input-cursor" wx:if="{{!item.isExed}}"></view>
         </view>
         <view class="rst" wx:if="{{item.rst}}">
           <view wx:if="{{item.rst.type === 'step'}}">

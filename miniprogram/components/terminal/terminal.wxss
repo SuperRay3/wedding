@@ -1,3 +1,5 @@
+@import "../../style/animation.wxss";
+
 /* 图标 */
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1583986683603'); /* IE9 */
@@ -118,14 +120,32 @@
   margin-top: 3px;
 }
 
+.terminal-content .cmds-wrapper .user-info,
+.terminal-content .cmds-wrapper .cmd-content,
+.terminal-content .cmds-wrapper .input-cursor {
+  display: inline-block;
+  vertical-align: top;
+}
+
 .terminal-content .cmds-wrapper .user-info {
-  float: left;
-  margin-right: 5px;
   color: rgb(0, 195, 8);
 }
 
-.terminal-content .cmds-wrapper .rst {
-  clear: left;
+.terminal-content .cmds-wrapper .cmd-content {
+  display: inline;
+  margin-left: 5px;
+}
+
+.terminal-content .cmds-wrapper .cmd-content:empty {
+  margin-left: 0;
+}
+
+.terminal-content .cmds-wrapper .input-cursor {
+  width: 5px;
+  height: 22px;
+  margin-left: 5px;
+  background-color:#BBB;
+  animation: cursor-blink .7s ease infinite alternate;
 }
 
 .cmds-wrapper .rst .step {
