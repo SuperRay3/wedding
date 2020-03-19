@@ -38,7 +38,6 @@ module.exports = Behavior({
     touchEndFn(e) {
       // 获取移动数据，计算出手势结果
       let directData = this.handDirection(this.data.touchData);
-      console.log(this)
       this.setData({
         'touchData.direction': directData
       })

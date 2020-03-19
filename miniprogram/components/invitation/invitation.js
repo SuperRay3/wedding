@@ -1,12 +1,23 @@
 const getstureBehavior = require('../../behaviors/gesture.js')
+const computedBehavior = require('miniprogram-computed')
 
 const app = getApp()
 
 Component({
-  behaviors: [getstureBehavior],
+  behaviors: [getstureBehavior, computedBehavior],
   data: {
     canOpen: false,
     isOpening: false
+  },
+
+  watch: {
+    'touchData.direction': function(newVal) {
+      if (newVal) {
+        if (newVal.direct === 'down') {
+          this.closeInvitation()
+        }
+      }
+    }
   },
 
   lifetimes: {
