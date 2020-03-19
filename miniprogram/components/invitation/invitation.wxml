@@ -2,7 +2,8 @@
   <view class="invitation-container {{isOpening ? 'invitation-down' : ''}}">
     <view class="invitation-cover">
       <view class="cover-content {{isOpening ? 'invitation-up' : ''}}">
-        <view class="content-inside">
+        <view class="content-inside" bind:touchstart="touchStartFn" bind:touchend="touchEndFn" bind:touchmove="touchMoveFn">
+          {{touchData.direction.direct}}
         </view>
       </view>
       <view class="cover-inside-left {{isOpening ? 'opening' : ''}}"></view>

@@ -1,6 +1,9 @@
+const getstureBehavior = require('../../behaviors/gesture.js')
+
 const app = getApp()
 
 Component({
+  behaviors: [getstureBehavior],
   data: {
     canOpen: false,
     isOpening: false
@@ -23,5 +26,18 @@ Component({
         isOpening: true
       })
     },
+
+    // 收起邀请函
+    closeInvitation() {
+      this.setData({
+        isOpening: false
+      })
+
+      setTimeout(() => {
+        this.setData({
+          canOpen: false
+        })
+      }, 660)
+    }
   }
 })
