@@ -1,12 +1,14 @@
 const computedBehavior = require('miniprogram-computed')
 const Terminal = require('../../class/terminal')
 const cmds = require('./cmd')
-const { formateDate } = require('../../utils/index')
+const { formateDate, debounce } = require('../../utils/index')
 const app = getApp()
 
 Component({
   behaviors: [computedBehavior],
   data: {
+    // 输入的指令
+    cmdIpt: '',
     show: false,
     extand: false
   },
@@ -34,7 +36,7 @@ Component({
 
         setTimeout(() => {
           // 初始化自动输入代码启动
-          this.data.terminalObj.inputCmd('npm run dev').then(rst => {
+          this.data.terminalObj.inputCmd('npm run start').then(rst => {
             this.setData({
               terminalObj: rst
             })
@@ -63,6 +65,50 @@ Component({
   },
 
   methods: {
+    /**
+     * 输入指令
+     */
+
+    cmdInput: debounce(function(e) {
+      console.log(e.detail.value)
+      // 保持视图更新
+      this.setData({
+        cmdIpt: e.detail.value
+      })
+      // 保持类实例同步
+      this.data.terminalObj.inputCmd(e.detail.value)
+      console.log(this.data.terminalObj.history)
+    }, 600),
+
+    /**
+     * 点击发送键
+     */
+
+    sendCmd() {
+      this.data.terminalObj.exeLastCmd(cmds).then(rst => {
+        this.setData({
+          terminalObj: rst
+        })
+        
+        // 清空输入框
+        setTimeout(() => {
+          this.setData({
+            cmdIpt: ''
+          })
+        }, 1200)
+
+        // 重新生成一条
+        const length = this.data.terminalObj.history.length
+        if (length && this.data.terminalObj.history[length - 1].rst.type !== 'stepDebugging') {
+          this.data.terminalObj.genNewCmd().then(res => {
+            this.setData({
+              'terminalObj.history': res.history
+            })
+          })
+        }
+      })
+    },
+
     extandTerminal() {
       this.data.terminalObj.toggleHide((isExtand) => {
         this.setData({
@@ -79,7 +125,10 @@ Component({
       })
     },
 
-    // 渐进式输出 step 类型的结果
+    /**
+     * 渐进式输出 step 类型的结果
+     */
+
     async stepOutputRst(steps) {
       let finalRst = []
       const exeStep = (step) => {

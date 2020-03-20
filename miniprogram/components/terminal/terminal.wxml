@@ -17,22 +17,23 @@
           <view class="input-cursor" wx:if="{{!item.isExed}}"></view>
         </view>
         <view class="rst" wx:if="{{item.rst}}">
-          <view wx:if="{{item.rst.type === 'step'}}">
+          <view wx:if="{{item.rst.type === 'stepDebugging'}}">
             <view class="step" wx:for="{{stepCmd}}" wx:key="label">
               <view class="step-item time">{{item.time}}</view>
               <view class="step-item label">{{item.label}}</view>
               <view class="step-item duration">{{item.duration}} ms</view>
             </view>
           </view>
-          <view wx:else></view>
+          <!-- 没有相应的指令 -->
+          <view wx:else-if="{{item.rst.type === 'none'}}">{{item.rst.text}}</view>
         </view>
       </view>
     </scroll-view>
     <view class="input-area">
       <!-- 命令输入 -->
       <view class="cmd-input-wrapper">
-        <input class="cmd-input" placeholder="请输入指令" />
-        <view class="btn send">发送</view>
+        <input class="cmd-input" value="{{cmdIpt}}" bind:input="cmdInput" bind:confirm="sendCmd" placeholder="请输入指令" confirm-type="send" confirm-hold="{{true}}" />
+        <button class="btn send" size="mini" disabled="{{!cmdIpt}}" bind:tap="sendCmd">发送</button>
       </view>
       <!-- 操作按钮 -->
       <view class="btn-wrapper">

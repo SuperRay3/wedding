@@ -1,6 +1,6 @@
 const cmds = {
-  'npm run dev': {
-    type: 'step',
+  'npm run start': {
+    type: 'stepDebugging',
     steps: [
       { label: '初始化', type: 'default' },
       { label: '模块收集中...', type: 'default' },
