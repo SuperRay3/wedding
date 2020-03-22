@@ -30,11 +30,11 @@ class Terminal {
   }
 
   // 新生成一条指令
-  genNewCmd() {
+  async genNewCmd() {
     return new Promise(res => {
       this.history.push({
         cmd: '',
-        rst: '',
+        rst: {},
         stamp: +new Date(),
         isExed: false
       })
@@ -54,7 +54,7 @@ class Terminal {
   }
 
   // exec lastest cmd
-  exeLastCmd(cmds) {
+  async exeLastCmd(cmds) {
     return new Promise(res => {
       if (this.history.length === 0) {
         res(this)

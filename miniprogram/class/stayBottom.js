@@ -16,12 +16,6 @@ class StayBttomP extends Publiser {
     this.context.createSelectorQuery().select(this.selector).boundingClientRect(rect => {
       this.codeContentH = rect.height
 
-      console.log({
-        codeContentH: this.codeContentH,
-        lastcodeContentH: this.lastcodeContentH,
-        scrollViewH: this.scrollViewH
-      })
-
       if (this.codeContentH > this.scrollViewH) {
         if (this.codeContentH > this.lastcodeContentH) {
           this.notify()

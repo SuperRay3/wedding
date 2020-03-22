@@ -19,7 +19,7 @@
           </view>
           <view class="rst" wx:if="{{item.rst}}">
             <view wx:if="{{item.rst.type === 'stepDebugging'}}">
-              <view class="step" wx:for="{{stepCmd}}" wx:key="label">
+              <view class="step" wx:for="{{item.rst.stepCmdOutput}}" wx:key="label">
                 <view class="step-item time">{{item.time}}</view>
                 <view class="step-item label">{{item.label}}</view>
                 <view class="step-item duration">{{item.duration}} ms</view>

@@ -49,24 +49,26 @@ Component({
             })
 
             // 运行指令
-            this.data.terminalObj.exeLastCmd(cmds).then(rst => {
+            this.data.terminalObj.exeLastCmd(cmds).then(async rst => {
               this.setData({
                 terminalObj: rst
               })
-              const steps = rst.history.slice(-1)[0].rst.steps
-              this.stepOutputRst(steps)
+
+              this.matchExeRst(rst.history.slice(-1)[0].rst)
             })
           })
         }, 1900)
       })
 
       // 监听关闭信封
-      app.event.on("closeInvitaion", () => {
-        this.data.terminalObj.genNewCmd().then(res => {
-          this.setData({
-            "terminalObj.history": res.history
-          })
+      app.event.on("closeInvitaion", async () => {
+        const res = await this.data.terminalObj.genNewCmd()
+         this.setData({
+          "terminalObj.history": res.history
         })
+
+        // 保持滚动在底部
+        stayBtP.checkScroll()
       })
 
       // 监听指令内容区满了自动滚动
@@ -86,7 +88,8 @@ Component({
 
   methods: {
     /**
-     * 输入指令
+     * TODO:输入指令
+     * 有时候回车不灵敏
      */
 
     cmdInput: debounce(function(e) {
@@ -96,37 +99,46 @@ Component({
       })
       // 保持类实例同步
       this.data.terminalObj.inputCmd(e.detail.value)
-    }, 500),
+    }, 200),
 
     /**
      * 点击发送键
      */
 
-    sendCmd() {
+    async sendCmd() {
       if (!this.data.cmdIpt) return
 
-      this.data.terminalObj.exeLastCmd(cmds).then(rst => {
-        this.setData({
-          terminalObj: rst
-        })
-
-        // 重新生成一条
-        const length = this.data.terminalObj.history.length
-        if (
-          length &&
-          this.data.terminalObj.history[length - 1].rst.type !== "stepDebugging"
-        ) {
-          this.data.terminalObj.genNewCmd().then(res => {
-            this.setData({
-              "terminalObj.history": res.history,
-              cmdIpt: ""
-            })
-
-            // 保持滚动在底部
-            stayBtP.checkScroll()
-          })
-        }
+      const rst = await this.data.terminalObj.exeLastCmd(cmds)
+      
+      this.setData({
+        terminalObj: rst,
+        cmdIpt: ""
       })
+
+      await this.matchExeRst(rst.history.slice(-1)[0].rst)
+
+      // 保持滚动在底部
+      stayBtP.checkScroll()
+    },
+
+    /**
+     * 匹配运行结果
+     */
+
+    async matchExeRst(rst) {
+      switch(rst.type) {
+        case 'stepDebugging':
+          await this.stepOutputRst(rst.steps)
+          app.event.emit("openInvitation")
+          break
+
+        default: 
+          const res = await this.data.terminalObj.genNewCmd()
+          this.setData({
+            "terminalObj.history": res.history
+          })
+          break
+      }
     },
 
     /**
@@ -184,6 +196,9 @@ Component({
 
     async stepOutputRst(steps) {
       let finalRst = []
+      const history = this.data.terminalObj.history
+      const historyLen = this.data.terminalObj.history.length
+      
       const exeStep = step => {
         const duration = Math.random() * 50 + 250
         return new Promise(res => {
@@ -193,8 +208,11 @@ Component({
               duration: duration.toFixed(2),
               label: step.label
             })
+
+            history[historyLen - 1].rst.stepCmdOutput = finalRst
+
             this.setData({
-              stepCmd: finalRst
+              'terminalObj.history': history
             })
             res()
           }, duration)
@@ -204,8 +222,6 @@ Component({
       for (const step of steps) {
         await exeStep(step)
       }
-
-      app.event.emit("openInvitation")
     }
   }
 })

@@ -8,6 +8,13 @@ const cmds = {
       { label: '压缩中...', type: 'default' },
       { label: '打包成功!', type: 'success' },
     ]
+  },
+  'reopen': {
+    type: 'stepDebugging',
+    steps: [
+      { label: '重启中...', type: 'default' },
+      { label: '重启成功!', type: 'success' },
+    ]
   }
 }
 
