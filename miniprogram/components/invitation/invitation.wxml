@@ -3,6 +3,13 @@
     <view class="invitation-cover">
       <view class="cover-content {{isOpening ? 'invitation-up' : ''}}">
         <view class="content-inside" bind:touchstart="touchStartFn" bind:touchend="touchEndFn" bind:touchmove="touchMoveFn">
+          <view class="content-border">
+            <view class="corner corner-top-left"></view>
+            <view class="corner corner-top-right"></view>
+            <view class="corner corner-bottom-left"></view>
+            <view class="corner corner-bottom-right"></view>
+            <view class="content-container"></view>
+          </view>
         </view>
       </view>
       <view class="cover-inside-left {{isOpening ? 'opening' : ''}}"></view>

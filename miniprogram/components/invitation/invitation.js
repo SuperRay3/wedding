@@ -6,8 +6,8 @@ const app = getApp()
 Component({
   behaviors: [getstureBehavior, computedBehavior],
   data: {
-    canOpen: false,
-    isOpening: false
+    canOpen: true,
+    isOpening: true
   },
 
   watch: {
