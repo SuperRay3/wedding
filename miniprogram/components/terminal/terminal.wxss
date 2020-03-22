@@ -145,24 +145,24 @@
   animation: cursor-blink .7s ease infinite alternate;
 }
 
-.cmds-wrapper .rst .step {
+.cmds-wrapper .rst .step .step-item-wrapper {
   display: flex;
   align-items: center;
 }
 
-.cmds-wrapper .rst .step .step-item {
+.cmds-wrapper .rst .step .step-item-wrapper .step-item {
   margin-right: 8px;
 }
 
-.cmds-wrapper .rst .step .time {
+.cmds-wrapper .rst .step .step-item-wrapper .time {
   color: rgb(102, 102, 102);
 }
 
-.cmds-wrapper .rst .step .label {
+.cmds-wrapper .rst .step .step-item-wrapper .label {
   color: rgb(66, 152, 175);
 }
 
-.cmds-wrapper .rst .step .duration {
+.cmds-wrapper .rst .step .step-item-wrapper .duration {
   color: rgb(176, 70, 178);
 }
 

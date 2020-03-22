@@ -1,3 +1,5 @@
+const { deepClone } = require("../utils/index");
+
 class Terminal {
   constructor() {
     this.toggleHide()
@@ -64,7 +66,7 @@ class Terminal {
       const length = this.history.length
       const lastCmd = this.history[length - 1]
 
-      const rst = cmds[lastCmd.cmd]
+      const rst = deepClone(cmds[lastCmd.cmd])
 
       this.history[length - 1].rst = rst ? rst : { type: 'none', text: '没有找到相应的命令' }
       this.history[length - 1].isExed = true

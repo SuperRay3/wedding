@@ -28,7 +28,7 @@ const deepClone = (obj) => {
   var newObj = obj instanceof Array ? [] : {}
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
-      newObj[key] = typeof obj[key] === 'object' ? Vue.prototype.$deepClone(obj[key]) : obj[key]
+      newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
     }
   }
   return newObj

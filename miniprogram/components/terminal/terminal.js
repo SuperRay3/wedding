@@ -2,7 +2,7 @@ const computedBehavior = require("miniprogram-computed");
 const Terminal = require("../../class/terminal");
 const { StayBttomP, StayBttomO } = require("../../class/stayBottom");
 const cmds = require("./cmd");
-const { formateDate, debounce } = require("../../utils/index");
+const { formateDate, debounce, deepClone } = require("../../utils/index");
 const app = getApp()
 
 let stayBtP = null
@@ -88,8 +88,7 @@ Component({
 
   methods: {
     /**
-     * TODO:输入指令
-     * 有时候回车不灵敏
+     * 输入指令
      */
 
     cmdInput: debounce(function(e) {
@@ -126,10 +125,19 @@ Component({
      */
 
     async matchExeRst(rst) {
-      switch(rst.type) {
-        case 'stepDebugging':
+      switch(rst.detail) {
+        case 'start':
           await this.stepOutputRst(rst.steps)
           app.event.emit("openInvitation")
+          break
+        
+        case 'reopen':
+          await this.stepOutputRst(rst.steps)
+          app.event.emit("openInvitation")
+          break
+        
+          case 'clear':
+          this.clearTerminal()
           break
 
         default: 
@@ -138,6 +146,36 @@ Component({
             "terminalObj.history": res.history
           })
           break
+      }
+    },
+
+    /**
+     * 渐进式输出 step 类型的结果
+     */
+
+    async stepOutputRst(steps) {
+      const exeStep = step => {
+        const duration = Math.random() * 50 + 250
+        return new Promise(res => {
+          setTimeout(() => {
+            step['time'] = formateDate(+new Date(), 'hh:mm:ss'),
+            step['isExed'] = true
+            step['stepStamp'] = +new Date()
+            step['duration'] = duration.toFixed(2)
+
+            this.setData({
+              'terminalObj.history': this.data.terminalObj.history
+            })
+            // 保持滚动在底部
+            stayBtP.checkScroll()
+            
+            res()
+          }, duration)
+        })
+      }
+
+      for (const step of steps) {
+        await exeStep(step)
       }
     },
 
@@ -188,40 +226,6 @@ Component({
           show: !isShow
         })
       })
-    },
-
-    /**
-     * 渐进式输出 step 类型的结果
-     */
-
-    async stepOutputRst(steps) {
-      let finalRst = []
-      const history = this.data.terminalObj.history
-      const historyLen = this.data.terminalObj.history.length
-      
-      const exeStep = step => {
-        const duration = Math.random() * 50 + 250
-        return new Promise(res => {
-          setTimeout(() => {
-            finalRst.push({
-              time: formateDate(+new Date(), "hh:mm:ss"),
-              duration: duration.toFixed(2),
-              label: step.label
-            })
-
-            history[historyLen - 1].rst.stepCmdOutput = finalRst
-
-            this.setData({
-              'terminalObj.history': history
-            })
-            res()
-          }, duration)
-        })
-      }
-
-      for (const step of steps) {
-        await exeStep(step)
-      }
     }
   }
 })
