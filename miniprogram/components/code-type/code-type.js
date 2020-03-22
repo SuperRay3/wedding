@@ -1,7 +1,7 @@
 const computedBehavior = require('miniprogram-computed')
 const Prism = require('prismjs')
 const mockcode = require('../../mock/code')
-const { StayBttomP, StayBttomO } = require('../../utils/stayBottom')
+const { StayBttomP, StayBttomO } = require('../../class/stayBottom')
 const app = getApp()
 
 let stayBtP = null
@@ -36,7 +36,7 @@ Component({
       this.progressivelyTyping()
     },
     ready: function() {
-      stayBtP.s.select('#scroll-view').boundingClientRect(function(rect){
+      this.createSelectorQuery().select('#scroll-view').boundingClientRect(function(rect){
         stayBtP.scrollViewH = rect.height
       }).exec()
     }

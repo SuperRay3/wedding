@@ -8,24 +8,26 @@
         <view class="icon iconfont iconzhankai {{extand ? 'extand' : ''}}" bind:tap="extandTerminal"></view>
       </view>
     </view>
-    <scroll-view class="terminal-content" scroll-y="true">
-      <view class="login-date">{{terminalObj.initDate}}</view>
-      <view class="cmds-wrapper" wx:for="{{terminalObj.history}}" wx:key="stamp">
-        <view class="cmd">
-          <view class="user-info">{{terminalObj.userInfo}}</view>
-          <view class="cmd-content">{{item.cmd}}</view>
-          <view class="input-cursor" wx:if="{{!item.isExed}}"></view>
-        </view>
-        <view class="rst" wx:if="{{item.rst}}">
-          <view wx:if="{{item.rst.type === 'stepDebugging'}}">
-            <view class="step" wx:for="{{stepCmd}}" wx:key="label">
-              <view class="step-item time">{{item.time}}</view>
-              <view class="step-item label">{{item.label}}</view>
-              <view class="step-item duration">{{item.duration}} ms</view>
-            </view>
+    <scroll-view id="scroll-view" class="terminal-content" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="{{true}}">
+      <view id="terminal-content-p">
+        <view class="login-date">{{terminalObj.initDate}}</view>
+        <view class="cmds-wrapper" wx:for="{{terminalObj.history}}" wx:key="stamp">
+          <view class="cmd">
+            <view class="user-info">{{terminalObj.userInfo}}</view>
+            <view class="cmd-content">{{item.cmd}}</view>
+            <view class="input-cursor" wx:if="{{!item.isExed}}"></view>
           </view>
-          <!-- 没有相应的指令 -->
-          <view wx:else-if="{{item.rst.type === 'none'}}">{{item.rst.text}}</view>
+          <view class="rst" wx:if="{{item.rst}}">
+            <view wx:if="{{item.rst.type === 'stepDebugging'}}">
+              <view class="step" wx:for="{{stepCmd}}" wx:key="label">
+                <view class="step-item time">{{item.time}}</view>
+                <view class="step-item label">{{item.label}}</view>
+                <view class="step-item duration">{{item.duration}} ms</view>
+              </view>
+            </view>
+            <!-- 没有相应的指令 -->
+            <view wx:else-if="{{item.rst.type === 'none'}}">{{item.rst.text}}</view>
+          </view>
         </view>
       </view>
     </scroll-view>
@@ -37,7 +39,7 @@
       </view>
       <!-- 操作按钮 -->
       <view class="btn-wrapper">
-        <view class="btn clear">清空</view>
+        <view class="btn clear" bind:tap="clearTerminal">清空</view>
         <view class="btn hide" bind:tap="hideTerminal">隐藏</view>
       </view>
     </view>

@@ -1,5 +1,5 @@
 <view class="main-wrapper">
-  <scroll-view id="scroll-view" class="code-wrapper" scroll-x="true" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="true">
+  <scroll-view id="scroll-view" class="code-wrapper" scroll-x="true" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="{{true}}">
     <rich-text id="code-content" nodes="{{highlightedCode}}"></rich-text>
   </scroll-view>
 </view>

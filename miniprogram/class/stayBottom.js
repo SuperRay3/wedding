@@ -1,4 +1,4 @@
-const { Publiser, Observer } = require('../class/observer')
+const { Publiser, Observer } = require('./observer')
 
 class StayBttomP extends Publiser {
   lastcodeContentH = 0 // 代码区域上一次的高
@@ -10,25 +10,36 @@ class StayBttomP extends Publiser {
     this.context = context
     this.scrollViewH = scrollViewH
     this.selector = selector
-    this.s = this.context.createSelectorQuery()  
   }
 
   checkScroll() {
-    this.s.select(this.selector).boundingClientRect(rect => {
+    this.context.createSelectorQuery().select(this.selector).boundingClientRect(rect => {
       this.codeContentH = rect.height
-    }).exec()
 
-    if (this.codeContentH > this.scrollViewH) {
-      if (this.codeContentH > this.lastcodeContentH) {
-        this.notify()
-        this.lastcodeContentH = this.codeContentH
+      console.log({
+        codeContentH: this.codeContentH,
+        lastcodeContentH: this.lastcodeContentH,
+        scrollViewH: this.scrollViewH
+      })
+
+      if (this.codeContentH > this.scrollViewH) {
+        if (this.codeContentH > this.lastcodeContentH) {
+          this.notify()
+          this.lastcodeContentH = this.codeContentH
+        }
       }
-    }
+    }).exec()
+  }
+
+  resetScroll() {
+    this.lastcodeContentH = 0
+    this.codeContentH = 0
+    this.scrollViewH = 0
   }
   
   notify() {
     this.observers.forEach(observer => {
-      observer.update(this.codeContentH - this.scrollViewH)
+      observer.update(this.codeContentH)
     })
   }
 }
@@ -46,7 +57,7 @@ class StayBttomO extends Observer {
     newData[this.scorllTopBind] = scrollTop
     setTimeout(() => {
       this.context.setData(newData)
-    })
+    }, 0)
   }
 }
 
