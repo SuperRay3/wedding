@@ -2,7 +2,7 @@ const computedBehavior = require("miniprogram-computed");
 const Terminal = require("../../class/terminal");
 const { StayBttomP, StayBttomO } = require("../../class/stayBottom");
 const cmds = require("./cmd");
-const { formateDate, debounce, deepClone } = require("../../utils/index");
+const { formateDate, debounce } = require("../../utils/index");
 const app = getApp()
 
 let stayBtP = null

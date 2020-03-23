@@ -8,7 +8,12 @@
             <view class="corner corner-top-right"></view>
             <view class="corner corner-bottom-left"></view>
             <view class="corner corner-bottom-right"></view>
-            <view class="content-container"></view>
+            <view class="content-container">
+              <image class="content-img content-inside-photo" src="../../images/photo.jpeg" />
+              <view class="phrase">范默苒 & 雷佳良</view>
+              <view class="phrase">{{date}}</view>
+              <view class="phrase">华林国际好运来酒店 - xxx 主题厅</view>
+            </view>
           </view>
         </view>
       </view>

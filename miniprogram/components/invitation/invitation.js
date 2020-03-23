@@ -1,5 +1,6 @@
 const getstureBehavior = require('../../behaviors/gesture.js')
 const computedBehavior = require('miniprogram-computed')
+const { formateDate } = require("../../utils/index");
 
 const app = getApp()
 
@@ -7,13 +8,14 @@ Component({
   behaviors: [getstureBehavior, computedBehavior],
   data: {
     canOpen: true,
-    isOpening: true
+    isOpening: true,
+    date: formateDate(new Date(2020, 11, 5), 'yyyy 年 MM 月 dd 日')
   },
 
   watch: {
     'touchData.direction': function(newVal) {
       if (newVal) {
-        if (newVal.direct === 'down') {
+        if (['left', 'right'].includes(newVal.direct)) {
           this.closeInvitation()
           app.event.emit('closeInvitaion')
         }
