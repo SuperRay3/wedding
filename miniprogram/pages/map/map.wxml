@@ -1,0 +1,7 @@
+<map setting="{{setting}}"
+      class="map-ele" />
+
+<view class="opts-wrapper">
+  <button type="primary"
+          bindtap="navTo">导航去婚礼现场</button>
+</view>

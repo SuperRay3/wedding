@@ -52,6 +52,11 @@ Component({
           canOpen: false
         })
       }, 660)
+    },
+
+    // 跳转地图页
+    navToMapPage() {
+      wx.navigateTo({ url: '../../pages/map/map' }) 
     }
   }
 })
