@@ -12,7 +12,7 @@
   <code-type wx:if="{{showIndex}}" class="code-type" />
 
   <!-- loading -->
-  <!-- <loading wx:if="{{!showIndex}}"></loading> -->
+  <loading wx:if="{{!showIndex}}"></loading>
 
   <!-- terminal -->
   <terminal />

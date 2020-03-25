@@ -7,8 +7,8 @@ const app = getApp()
 Component({
   behaviors: [getstureBehavior, computedBehavior],
   data: {
-    canOpen: true,
-    isOpening: true,
+    canOpen: false,
+    isOpening: false,
     date: formateDate(new Date(2020, 11, 5), 'yyyy 年 MM 月 dd 日')
   },
 

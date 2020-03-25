@@ -14,6 +14,7 @@ Component({
     // 输入的指令
     cmdIpt: "",
     show: false,
+    showTerminalSwitch: false,
     extand: false,
     // 指令容器需要滚动的高，用于实现一直滚动到底部
     codeContentScrollTop: 0
@@ -24,7 +25,8 @@ Component({
       // 监听打开终端
       app.event.on("showTerminal", show => {
         this.setData({
-          show
+          show,
+          showTerminalSwitch: !show
         })
 
         setTimeout(() => {
@@ -180,11 +182,11 @@ Component({
     },
 
     /**
-     * 打开控制台
+     * 拓展控制台
      */
 
     extandTerminal() {
-      this.data.terminalObj.toggleHide(isExtand => {
+      this.data.terminalObj.toggleExtand(isExtand => {
         // 防止滚动距离不变导致的 scroll-view 不触发自动滚动
         const tmpScrollH = stayBtP.codeContentH + (isExtand ? 1 : -1)
         
@@ -221,9 +223,10 @@ Component({
      */
 
     hideTerminal() {
-      this.data.terminalObj.toggleExtand(isShow => {
+      this.data.terminalObj.toggleHide(isShow => {
         this.setData({
-          show: !isShow
+          show: !isShow,
+          showTerminalSwitch: isShow
         })
       })
     }
