@@ -17,7 +17,9 @@ Component({
     showTerminalSwitch: false,
     extand: false,
     // 指令容器需要滚动的高，用于实现一直滚动到底部
-    codeContentScrollTop: 0
+    codeContentScrollTop: 0,
+    // 指令区域是否平滑滚动
+    terminalScrollSmooth: true
   },
 
   lifetimes: {
@@ -168,17 +170,27 @@ Component({
             this.setData({
               'terminalObj.history': this.data.terminalObj.history
             })
-            // 保持滚动在底部
-            stayBtP.checkScroll()
-            
             res()
           }, duration)
         })
       }
 
+      this.setData({
+        terminalScrollSmooth: false
+      })
+
       for (const step of steps) {
         await exeStep(step)
+        // 保持滚动在底部
+        wx.nextTick(() => {
+          stayBtP.checkScroll()
+        })
       }
+
+      this.setData({
+        terminalScrollSmooth: true
+      })
+
     },
 
     /**

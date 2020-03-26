@@ -44,18 +44,22 @@
 }
 
 .invitation-cover .cover-content {
+  z-index: 6;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 10px;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 1, 1);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 1, 1),
+  opacity 0.6s linear;
   box-sizing: border-box;
 }
 
 .invitation-cover .cover-content.invitation-up {
   transform: translateY(-50px);
+  opacity: 1;
 }
 
 .cover-content .content-inside {
@@ -147,7 +151,7 @@
   border-radius: 10px;
   background-color: #d65047;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 6;
+  z-index: 7;
   transition: transform 0.5s;
   transform-origin: 0 50%;
 }
@@ -165,7 +169,7 @@
   border-radius: 10px;
   background-color: #d65047;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 5;
+  z-index: 6;
   transition: transform 0.5s;
   transform-origin: 100% 50%;
 }
@@ -181,7 +185,7 @@
   width: 80px;
   height: 80px;
   margin-left: -40px;
-  z-index: 7;
+  z-index: 8;
   transform-origin: 50% 50%;
   transition: all 0.8s cubic-bezier(0.4, 0, 1, 1);
 }

@@ -188,7 +188,7 @@
 }
 
 .cmd-input-wrapper .btn {
-  flex-basis: 17%;
+  flex-basis: 20%;
   text-align: center;
   color: rgb(28, 28, 28);
   border-left: 1px solid rgb(223, 223, 223);

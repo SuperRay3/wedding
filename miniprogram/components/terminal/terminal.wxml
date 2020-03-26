@@ -8,7 +8,7 @@
         <view class="icon iconfont iconzhankai {{extand ? 'extand' : ''}}" bind:tap="extandTerminal"></view>
       </view>
     </view>
-    <scroll-view id="scroll-view" class="terminal-content" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="{{true}}">
+    <scroll-view id="scroll-view" class="terminal-content" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="{{terminalScrollSmooth}}">
       <view id="terminal-content-p">
         <view class="login-date">{{terminalObj.initDate}}</view>
         <view class="cmds-wrapper" wx:for="{{terminalObj.history}}" wx:key="stamp">
