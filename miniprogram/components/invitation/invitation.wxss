@@ -116,6 +116,8 @@
 
 .content-inside .content-border .content-container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   border: 2px solid #e9e5d9;
   position: relative;
   padding: 10px;
@@ -125,11 +127,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.content-container .content-info {
+  flex-grow: .8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .content-container .content-img {
   border-radius: 3px;
   border: 1px solid #fff;
-  margin-top: 3px;
-  margin-bottom: 15px;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,.1);
 }
@@ -140,6 +147,11 @@
 
 .content-container .phrase {
   padding-bottom: 10px;
+  font-size: 35rpx;
+}
+
+.content-container .phrase .inline-block-text {
+  display: block;
 }
 
 .cover-inside-left {
@@ -154,6 +166,21 @@
   z-index: 7;
   transition: transform 0.5s;
   transform-origin: 0 50%;
+}
+
+.content-container .wish-btn-wrapper {
+  text-align: center;
+  font-size: 0;
+}
+
+.content-container .wish-btn-wrapper .btn-icon {
+  width: 140rpx;
+  height: 140rpx;
+  padding: 20rpx;
+  border-radius: 50%;
+  border: 2px solid #f2b924;
+  transform: rotateZ(25deg);
+  box-sizing: border-box;
 }
 
 .cover-inside-left.opening {
