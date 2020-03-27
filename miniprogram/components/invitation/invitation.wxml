@@ -20,7 +20,7 @@
                   </view>
                 </view>
               </view>
-              <view class="wish-btn-wrapper"><image class="btn-icon" src="../../images/flower.png" /></view>
+              <view class="wish-btn-wrapper" bind:tap="navToBarragePage"><image class="btn-icon" src="../../images/flower.png" /></view>
             </view>
           </view>
         </view>

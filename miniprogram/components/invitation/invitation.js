@@ -57,6 +57,11 @@ Component({
     // 跳转地图页
     navToMapPage() {
       wx.navigateTo({ url: '../../pages/map/map' }) 
+    },
+
+    // 跳转弹幕页
+    navToBarragePage() {
+      wx.navigateTo({ url: '../../pages/barrage/barrage' }) 
     }
   }
 })
