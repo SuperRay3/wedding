@@ -1,0 +1,265 @@
+@import "./animations.wxss";
+
+.main-wrapper {
+  height: 60%;
+  position: relative;
+  perspective: 800px;
+  overflow: hidden;
+}
+
+
+.envelope {
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 85%;
+  height: 500rpx;
+  margin-left: -42%;
+  margin-top: -250rpx;
+  transform-style: preserve-3d;
+  transform-origin: right center;
+  color: #1f1f1f;
+  transition: transform 1s ease;
+}
+
+.envelope .front,
+.envelope .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ededbf;
+  border-radius: 5px;
+  box-shadow: inset 0 0 30px -5px #a87e50, 0 0 20px -5px;
+}
+
+.envelope .front {
+  backface-visibility: hidden;
+  cursor: pointer;
+  display: table;
+  transform: translate3d(0, 0, 1px);
+}
+
+.envelope .front:focus {
+  outline: none;
+}
+
+.envelope .front .stamp {
+  transform: translate3d(0, 0, 1px);
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 10px;
+  top: 10px;
+  padding: 10px;
+  background: radial-gradient(
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 4px,
+    #f6f6df 4px,
+    #f6f6df
+  );
+  background-size: 20px 20px;
+  background-position: -10px -10px;
+}
+
+.envelope .front .stamp:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2cf;
+  border-radius: 2px;
+}
+
+.envelope .front .mailme {
+  transform: translate3d(0, 0, 1px);
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.envelope .front .mailme .title {
+  font-size: 70rpx;
+  line-height: 70rpx;
+  font-weight: bold;
+  margin: 0;
+}
+
+.envelope .back {
+  transform: rotateY(180deg) translate3d(0, 0, 1px);
+}
+
+.envelope .back .flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.envelope .back .flap:before {
+  content: "";
+  position: absolute;
+  background-color: #ededbf;
+  box-shadow: inset 0 0 30px -7px #a87e50;
+}
+
+.envelope .back .top-flap:before,
+.envelope .back .bottom-flap:before {
+  width: 85%;
+  height: 500rpx;
+}
+
+.envelope .back .top-flap {
+  z-index: 5;
+  transform-origin: top center;
+}
+
+.envelope .back .top-flap:before {
+  transform-origin: top left;
+  transform: rotate(-45deg) translate(0px, -20px);
+  border-bottom-left-radius: 35px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.envelope .back .bottom-flap {
+  z-index: 4;
+}
+
+.envelope .back .bottom-flap:before {
+  transform-origin: left bottom;
+  transform: rotate(45deg) translate(0, 20px);
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.envelope .back .left-flap:before,
+.envelope .back .right-flap:before {
+  width: 269.27249px;
+  height: 269.27249px;
+  top: -5px;
+}
+
+.envelope .back .left-flap {
+  z-index: 3;
+}
+
+.envelope .back .left-flap:before {
+  transform-origin: top left;
+  transform: rotate(45deg);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 5px;
+}
+
+.envelope .back .right-flap {
+  z-index: 2;
+}
+
+.envelope .back .right-flap:before {
+  right: 0;
+  transform-origin: top right;
+  transform: rotate(-45deg);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 5px;
+}
+.envelope .back .letter {
+  z-index: 1;
+  position: absolute;
+  top: 5px;
+  left: 1%;
+  width: 98%;
+  height: 490rpx;
+  background-color: #f2f2cf;
+  border-radius: 5px;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  box-shadow: inset 0 0px 30px -5px #b08c5b, 0 0 10px -5px;
+  overflow: hidden;
+}
+
+.envelope .back .letter .mailform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+
+.envelope .back .letter .form-item-input {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  font-size: 32rpx;
+  font-family: sans-serif;
+  border: none;
+  box-sizing: border-box;
+  background-color: #f6f6df;
+}
+
+.envelope .back .letter .form-item-input.input {
+  height: 33px;
+}
+
+.envelope .back .letter .submit-btn {
+  width: 100%;
+  margin: 0;
+  padding: 5px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: #e7e1bc;
+  transition: all 0.1s linear;
+}
+
+.envelope .back .letter .form-item-input.textarea {
+  z-index: 1;
+  resize: none;
+  height: 220rpx;
+}
+
+.envelope.new {
+  animation: new 1s forwards;
+}
+.envelope.open {
+  animation: open 3s forwards;
+}
+.envelope.open .top-flap {
+  animation: flap-open 1s 1s forwards;
+}
+.envelope.open .letter {
+  animation: letter-out 1s 2s forwards;
+}
+.envelope.send {
+  animation: send 4s forwards;
+}
+.envelope.send .top-flap {
+  transform: rotateX(-180deg);
+  z-index: -1;
+  animation: flap-close 1s 1s forwards;
+}
+.envelope.send .letter {
+  animation: letter-in 1s forwards;
+}
+
+.new + .notification,
+.open + .notification {
+  transition: all 1s linear;
+  opacity: 0;
+}
+
+.send + .notification {
+  transition: all 1s 3s linear;
+  opacity: 1;
+}
+
+
+
+
+
+

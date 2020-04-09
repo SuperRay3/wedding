@@ -1,0 +1,8 @@
+page {
+  background-color: #45D5D5;
+}
+
+.barrage-container {
+  height: 40%;
+}
+

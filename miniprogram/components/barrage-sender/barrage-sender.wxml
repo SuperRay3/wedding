@@ -1,0 +1,35 @@
+<view class="main-wrapper">
+  <view class="envelope {{isInit ? 'new' : ''}} {{isOpen ? 'open' : ''}} {{isSend ? 'send' : ''}}" 
+        bind:tap="openEnvelope">
+    <view class="front">
+      <view class="stamp"></view>
+      <view class="mailme">
+        <view class="title">期待你的祝福</view>
+      </view>
+    </view>
+    <view class="back">
+      <view class="letter">
+        <view wx:if="{{!isSend}}" class="mailform">
+          <!-- 昵称 -->
+          <view class="form-item">
+            <input class="form-item-input input" placeholder="雷雷雷和饭的好朋友"/>
+          </view>
+          <!-- 祝福 -->
+          <view class="form-item">
+            <textarea class="form-item-input textarea" show-confirm-bar="{{false}}" disabled="{{!isOpen}}" maxlength="50"/>
+          </view>
+          <!-- 提交 -->
+          <view class="form-item">
+            <button class="submit-btn" catch:tap="send">发送</button>
+          </view>
+        </view>
+        <view wx:else></view>
+      </view>
+      <view class="flap left-flap"></view>
+      <view class="flap right-flap"></view>
+      <view class="flap bottom-flap"></view>
+      <view class="flap top-flap"></view>
+    </view>
+  </view>
+  <button class="submit-btn" catch:tap="oncMore">再来一个</button>
+</view>
