@@ -23,7 +23,12 @@
             <button class="submit-btn" catch:tap="send">发送</button>
           </view>
         </view>
-        <view wx:else></view>
+        <view wx:else class="letter-send-loading">
+          <view class="loc-wrapper">
+            <view class="loading-img"></view>
+            <view class="loading-p">祝福打包中</view>
+          </view>
+        </view>
       </view>
       <view class="flap left-flap"></view>
       <view class="flap right-flap"></view>

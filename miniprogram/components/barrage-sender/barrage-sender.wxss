@@ -223,6 +223,48 @@
   height: 220rpx;
 }
 
+.letter-send-loading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-send-loading .loading-img {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  margin-left: -25px;
+}
+
+.letter-send-loading .loading-img::before {
+  content: "";
+  position: absolute;
+  top: 59px;
+  width: 50px;
+  height: 5px;
+  background-color: #000;
+  opacity: 0.1;
+  border-radius: 50%;
+  animation: shadow 0.5s linear infinite;
+}
+
+.letter-send-loading .loading-img::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #45D5D5;
+  animation: animate 0.5s linear infinite;
+  border-radius: 3px;
+}
+
+.letter-send-loading .loading-p {
+  margin-top: 25px;
+}
+
 .envelope.new {
   animation: new 1s forwards;
 }
@@ -246,20 +288,3 @@
 .envelope.send .letter {
   animation: letter-in 1s forwards;
 }
-
-.new + .notification,
-.open + .notification {
-  transition: all 1s linear;
-  opacity: 0;
-}
-
-.send + .notification {
-  transition: all 1s 3s linear;
-  opacity: 1;
-}
-
-
-
-
-
-
