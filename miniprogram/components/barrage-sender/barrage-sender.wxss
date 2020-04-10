@@ -83,7 +83,13 @@
   font-size: 70rpx;
   line-height: 70rpx;
   font-weight: bold;
-  margin: 0;
+  margin-top: 35px;
+}
+
+.envelope .front .mailme .subtitle {
+  font-size: 40rpx;
+  line-height: 40rpx;
+  margin-top: 5px;
 }
 
 .envelope .back {

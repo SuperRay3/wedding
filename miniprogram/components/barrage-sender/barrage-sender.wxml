@@ -5,6 +5,7 @@
       <view class="stamp"></view>
       <view class="mailme">
         <view class="title">期待你的祝福</view>
+        <view class="subtitle">点击填写</view>
       </view>
     </view>
     <view class="back">
