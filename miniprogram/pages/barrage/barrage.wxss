@@ -3,6 +3,7 @@ page {
 }
 
 .barrage-container {
-  height: 40%;
+  height: 35%;
+  border: 1px solid #000000;
 }
 

@@ -6,10 +6,8 @@ Component({
   data: {
     isInit: true,
     isOpen: false,
-    isSend: false
-  },
-
-  watch: {
+    isSend: false,
+    showOneMore: ''
   },
 
   lifetimes: {
@@ -40,13 +38,20 @@ Component({
         isOpen: false,
         isSend: true
       })
+
+      setTimeout(() => {
+        this.setData({
+          showOneMore: 'show'
+        })
+      }, 4200)
     },
 
     oneMore() {
       this.setData({
         isInit: true,
         isOpen: false,
-        isSend: false
+        isSend: false,
+        showOneMore: 'hide'
       })
     }
   }

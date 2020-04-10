@@ -69,9 +69,9 @@
     margin-left: -42%;
   }
   100% {
-    transform: translate3d(0, 0, 0) rotateY(0deg);
-    left: 100%;
-    margin-left: 20px;
+    transform: translate3d(-100%, -100%, 0) rotateY(0deg) scale(0);
+    left: 50%;
+    margin-left: 0;
   }
 }
 @keyframes flap-close {
@@ -125,5 +125,30 @@
   }
   50% {
     transform: scale(1.2, 1);
+  }
+}
+
+/* onemore btn */
+@keyframes oneMoreBtnShadowShow {
+  0% {
+    opacity: 0;
+    box-shadow: none;
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow:2px 2px 17px #07689f;
+  }
+}
+
+@keyframes oneMoreBtnShadowHide {
+  0% {
+    opacity: 1;
+    box-shadow:2px 2px 17px #07689f;
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow: none;
   }
 }

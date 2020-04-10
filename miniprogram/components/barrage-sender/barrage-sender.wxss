@@ -305,6 +305,15 @@
 .one-more-container .iconfeather {
   font-size: 300rpx;
   color: #cbf1f5;
-  box-shadow:2px 2px 17px #11999e;
   border-radius: 15px;
+  opacity: 0;
+  background-color: #07689f;
+}
+
+.one-more-container .iconfeather.show {
+  animation: oneMoreBtnShadowShow 1s forwards;
+}
+
+.one-more-container .iconfeather.hide {
+  animation: oneMoreBtnShadowHide 1s forwards;
 }
