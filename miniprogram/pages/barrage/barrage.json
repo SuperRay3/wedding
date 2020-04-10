@@ -1,5 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#45D5D5",
+  "navigationBarBackgroundColor": "#79a8a9",
   "usingComponents": {
     "barrage-sender": "/components/barrage-sender/barrage-sender"
   }
