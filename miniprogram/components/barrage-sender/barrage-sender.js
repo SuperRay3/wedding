@@ -42,7 +42,7 @@ Component({
       })
     },
 
-    oncMore() {
+    oneMore() {
       this.setData({
         isInit: true,
         isOpen: false,

@@ -36,5 +36,9 @@
       <view class="flap top-flap"></view>
     </view>
   </view>
-  <button class="submit-btn" catch:tap="oncMore">再来一个</button>
+  <view class="one-more-wrapper">
+    <view class="one-more-container">
+      <view class="icon iconfont iconfeather" catch:tap="oneMore"></view>
+    </view>
+  </view>
 </view>

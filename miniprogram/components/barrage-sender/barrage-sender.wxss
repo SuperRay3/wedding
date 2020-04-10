@@ -1,7 +1,8 @@
+@import "../../style/fontface.wxss";
 @import "./animations.wxss";
 
 .main-wrapper {
-  height: 60%;
+  height: 65%;
   position: relative;
   perspective: 800px;
   overflow: hidden;
@@ -287,4 +288,23 @@
 }
 .envelope.send .letter {
   animation: letter-in 1s forwards;
+}
+
+.one-more-wrapper {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-more-container .iconfeather {
+  font-size: 300rpx;
+  color: #cbf1f5;
+  box-shadow:2px 2px 17px #11999e;
+  border-radius: 15px;
 }
