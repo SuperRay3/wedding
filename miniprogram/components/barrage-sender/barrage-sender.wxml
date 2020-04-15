@@ -2,10 +2,14 @@
   <view class="envelope {{isInit ? 'new' : ''}} {{isOpen ? 'open' : ''}} {{isSend ? 'send' : ''}}" 
         bind:tap="openEnvelope">
     <view class="front">
-      <view class="stamp"></view>
-      <view class="mailme">
-        <view class="title">期待你的祝福</view>
-        <view class="subtitle">点击填写</view>
+      <view class="stamp">
+        <open-data 
+          class="avatar-default" 
+          type="userAvatarUrl"
+          default-avatar="{{defaultAvatar}}"></open-data>
+      </view>
+      <view class="mailme" bind:tap="openEnvelope">
+        <view class="title">点击填写</view>
       </view>
     </view>
     <view class="back">

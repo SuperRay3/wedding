@@ -7,12 +7,18 @@ Component({
     isInit: true,
     isOpen: false,
     isSend: false,
-    showOneMore: ''
+    showOneMore: '',
+  },
+  
+  computed: {
+    defaultAvatar(data) {
+      
+    }
   },
 
   lifetimes: {
     ready: function () {
-    },
+    }
   },
 
   methods: {
