@@ -8,16 +8,27 @@ Component({
     isOpen: false,
     isSend: false,
     showOneMore: '',
+    userInfo: {nickName: '', avatarUrl: ''},
+    wishContent: ''
   },
   
   computed: {
-    defaultAvatar(data) {
-      
-    }
+
   },
 
   lifetimes: {
     ready: function () {
+      wx.getStorage({
+        key: 'userInfo',
+        success: (data) => {
+          this.setData({
+            userInfo: JSON.parse(data.data)
+          })
+        },
+        fail: () => {
+          wx.navigateBack()
+        }
+      })
     }
   },
 
@@ -33,6 +44,16 @@ Component({
           isOpen: true
         })
       }
+    },
+
+    /**
+     * 填写祝福
+     */
+
+    typeWish(e) {
+      this.setData({
+        wishContent: e.detail.value
+      })
     },
 
     /**

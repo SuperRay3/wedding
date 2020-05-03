@@ -9,7 +9,8 @@ Component({
   data: {
     canOpen: false,
     isOpening: false,
-    date: formateDate(new Date(2020, 11, 5), 'yyyy 年 MM 月 dd 日')
+    date: formateDate(new Date(2020, 11, 5), 'yyyy 年 MM 月 dd 日'),
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   watch: {
@@ -62,6 +63,19 @@ Component({
     // 跳转弹幕页
     navToBarragePage() {
       wx.navigateTo({ url: '../../pages/barrage/barrage' }) 
+    },
+
+    // 获取用户信息
+    bindGetUserInfo (e) {
+      // 缓存用户信息
+      wx.setStorage({
+        key: 'userInfo',
+        data: JSON.stringify(e.detail.userInfo),
+        success: () =>{
+          console.log(e.detail.userInfo)
+          this.navToBarragePage()
+        }
+      })
     }
   }
 })

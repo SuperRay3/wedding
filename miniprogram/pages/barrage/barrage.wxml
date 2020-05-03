@@ -1,3 +1,2 @@
 <view class="barrage-container"></view>
-
 <barrage-sender />

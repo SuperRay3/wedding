@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/barrage/barrage",
     "pages/home/home",
+    "pages/barrage/barrage",
     "pages/map/map"
   ],
   "window": {

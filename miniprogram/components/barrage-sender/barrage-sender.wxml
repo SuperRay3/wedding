@@ -17,15 +17,27 @@
         <view wx:if="{{!isSend}}" class="mailform">
           <!-- 昵称 -->
           <view class="form-item">
-            <input class="form-item-input input" placeholder="雷雷雷和饭的好朋友"/>
+            <input
+                class="form-item-input input"
+                value="{{userInfo.nickName}}"
+                disabled/>
           </view>
           <!-- 祝福 -->
           <view class="form-item">
-            <textarea class="form-item-input textarea" show-confirm-bar="{{false}}" disabled="{{!isOpen}}" maxlength="50"/>
+            <textarea 
+              class="form-item-input textarea"
+              value="{{wishContent}}"
+              show-confirm-bar="{{false}}" 
+              disabled="{{!isOpen}}" 
+              maxlength="50"
+              bind:input="typeWish"/>
           </view>
           <!-- 提交 -->
           <view class="form-item">
-            <button class="submit-btn" catch:tap="send">发送</button>
+            <button 
+                class="submit-btn"
+                disabled="{{wishContent === ''}}" 
+                catch:tap="send">发送</button>
           </view>
         </view>
         <view wx:else class="letter-send-loading">
