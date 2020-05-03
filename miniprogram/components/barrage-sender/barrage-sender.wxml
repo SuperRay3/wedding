@@ -9,7 +9,7 @@
           default-avatar="{{defaultAvatar}}"></open-data>
       </view>
       <view class="mailme" bind:tap="openEnvelope">
-        <view class="title">点击填写</view>
+        <view class="title">点击送祝福</view>
       </view>
     </view>
     <view class="back">
