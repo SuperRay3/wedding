@@ -36,7 +36,8 @@
           <view class="form-item">
             <button 
                 class="submit-btn"
-                disabled="{{wishContent === ''}}" 
+                disabled="{{wishContent === ''}}"
+                loading="{{sendBtnLoading}}"
                 catch:tap="send">发送</button>
           </view>
         </view>

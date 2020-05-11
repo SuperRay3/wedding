@@ -1,4 +1,8 @@
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify'
 const computedBehavior = require('miniprogram-computed')
+// 初始化数据库连接
+const db = wx.cloud.database()
+
 
 Component({
   behaviors: [computedBehavior],
@@ -9,7 +13,8 @@ Component({
     isSend: false,
     showOneMore: '',
     userInfo: {nickName: '', avatarUrl: ''},
-    wishContent: ''
+    wishContent: '',
+    sendBtnLoading: false,
   },
   
   computed: {
@@ -61,16 +66,44 @@ Component({
      */
     send() {
       this.setData({
-        isInit: false,
-        isOpen: false,
-        isSend: true
+        sendBtnLoading: true
       })
-
-      setTimeout(() => {
-        this.setData({
-          showOneMore: 'show'
+      db.collection('barrage').add({
+        data: {
+          timestamp: +new Date(),
+          wishContent: this.data.wishContent,
+          userInfo: this.data.userInfo
+        }
+      })
+        .then(res => {
+          wx.showToast({
+            icon: 'success',
+            title: '发送成功！',
+            duration: 1500
+          })
+        }, rej => {
+          wx.showToast({
+            title: '发送失败！',
+            duration: 1500
+          })
         })
-      }, 4200)
+        .finally(() => {
+          this.setData({
+            sendBtnLoading: false
+          })
+        })
+
+      // this.setData({
+      //   isInit: false,
+      //   isOpen: false,
+      //   isSend: true
+      // })
+
+      // setTimeout(() => {
+      //   this.setData({
+      //     showOneMore: 'show'
+      //   })
+      // }, 4200)
     },
 
     oneMore() {
