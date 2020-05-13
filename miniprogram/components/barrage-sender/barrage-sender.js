@@ -1,4 +1,3 @@
-import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify'
 const computedBehavior = require('miniprogram-computed')
 // 初始化数据库连接
 const db = wx.cloud.database()
