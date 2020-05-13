@@ -1,2 +1,4 @@
-<view class="barrage-container"></view>
+<view class="barrage-container">
+    <barrage class="barrage"></barrage>
+</view>
 <barrage-sender />

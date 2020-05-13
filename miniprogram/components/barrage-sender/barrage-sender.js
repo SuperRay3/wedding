@@ -70,8 +70,12 @@ Component({
       db.collection('barrage').add({
         data: {
           timestamp: +new Date(),
-          wishContent: this.data.wishContent,
-          userInfo: this.data.userInfo
+          color: '#fff',
+          content: this.data.wishContent,
+          image: {
+            head: { src: `${this.data.userInfo.avatarUrl}`},
+            gap: 2
+          }
         }
       })
         .then(res => {
