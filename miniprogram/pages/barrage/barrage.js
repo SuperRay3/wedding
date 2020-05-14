@@ -2,10 +2,11 @@ let initBarrageData = []
 
 Page({
     data: {
+        barrage: null
     },
 
     async onReady() {
-        initBarrageData = await this.getBarrange()
+        initBarrageData = await this.getBarrage()
         this.initBarrageComp()
     },
 
@@ -32,7 +33,7 @@ Page({
      * @param opts 条件配置
      */
 
-    async getBarrange(opts) {
+    async getBarrage(opts) {
         const defaultParam = { skip: 0, limit: 100 }
         const fullParam = { ...defaultParam, ...opts }
         const db = wx.cloud.database()

@@ -72,8 +72,10 @@ Component({
         key: 'userInfo',
         data: JSON.stringify(e.detail.userInfo),
         success: () =>{
+          if (e.detail.userInfo) {
+            this.navToBarragePage()
+          }
           console.log(e.detail.userInfo)
-          this.navToBarragePage()
         }
       })
     }

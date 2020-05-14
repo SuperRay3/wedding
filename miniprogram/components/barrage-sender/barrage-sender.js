@@ -84,6 +84,20 @@ Component({
             title: '发送成功！',
             duration: 1500
           })
+
+          this.setData({
+            isInit: false,
+            isOpen: false,
+            isSend: true
+          })
+
+          this.resetBarrageBind()
+
+          setTimeout(() => {
+            this.setData({
+              showOneMore: 'show'
+            })
+          }, 4200)
         }, rej => {
           wx.showToast({
             title: '发送失败！',
@@ -95,18 +109,16 @@ Component({
             sendBtnLoading: false
           })
         })
+    },
 
-      // this.setData({
-      //   isInit: false,
-      //   isOpen: false,
-      //   isSend: true
-      // })
+    /**
+     * 重置弹幕容器数据
+     */
 
-      // setTimeout(() => {
-      //   this.setData({
-      //     showOneMore: 'show'
-      //   })
-      // }, 4200)
+    resetBarrageBind() {
+      this.setData({
+        wishContent: ''
+      })
     },
 
     oneMore() {
