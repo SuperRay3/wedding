@@ -171,6 +171,7 @@
 .content-container .wish-btn-wrapper {
   text-align: center;
   font-size: 0;
+  background-color: transparent;
 }
 
 .content-container .wish-btn-wrapper .btn-icon {

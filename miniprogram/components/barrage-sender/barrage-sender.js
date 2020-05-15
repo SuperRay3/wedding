@@ -64,19 +64,24 @@ Component({
      * 发送弹幕
      */
     send() {
+      // 新发送的弹幕
+      const newBarrage = {
+        timestamp: +new Date(),
+        color: '#fff',
+        content: this.data.wishContent,
+        image: {
+          head: { src: `${this.data.userInfo.avatarUrl}`, width: 40, height: 40 },
+          gap: 1
+        }
+      }
+
       this.setData({
         sendBtnLoading: true
       })
+
+      // 存入数据库
       db.collection('barrage').add({
-        data: {
-          timestamp: +new Date(),
-          color: '#fff',
-          content: this.data.wishContent,
-          image: {
-            head: { src: `${this.data.userInfo.avatarUrl}`},
-            gap: 2
-          }
-        }
+        data: newBarrage
       })
         .then(res => {
           wx.showToast({
@@ -85,14 +90,20 @@ Component({
             duration: 1500
           })
 
+          // 打包祝福
           this.setData({
             isInit: false,
             isOpen: false,
             isSend: true
           })
 
+          // 将新增的弹幕通过事件传递给父组件
+          this.triggerEvent('sendBarrage', newBarrage)
+          
+          // 重置弹幕数据存储对象
           this.resetBarrageBind()
 
+          // 展示再写一封的按钮
           setTimeout(() => {
             this.setData({
               showOneMore: 'show'

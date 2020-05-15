@@ -27,7 +27,6 @@
                 open-type="getUserInfo" 
                 bindgetuserinfo="bindGetUserInfo"><image class="btn-icon" src="../../images/flower.png" /></button>
               <view wx:else>请升级微信版本后发送祝福</view>
-              <!-- <view class="wish-btn-wrapper" bind:tap="navToBarragePage"><image class="btn-icon" src="../../images/flower.png" /></view> -->
             </view>
           </view>
         </view>
