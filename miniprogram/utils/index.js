@@ -58,8 +58,14 @@ const debounce = (func, wait, immediate) => {
   }
 }
 
+// 随机产生颜色
+const randomHexColor = () => {
+	return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6);
+}
+
 module.exports = {
   formateDate,
   deepClone,
-  debounce
+  debounce,
+  randomHexColor
 }

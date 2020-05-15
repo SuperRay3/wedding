@@ -1,3 +1,5 @@
+import { randomHexColor } from '../../utils/index'
+
 const computedBehavior = require('miniprogram-computed')
 // 初始化数据库连接
 const db = wx.cloud.database()
@@ -67,12 +69,9 @@ Component({
       // 新发送的弹幕
       const newBarrage = {
         timestamp: +new Date(),
-        color: '#fff',
+        color: randomHexColor(),
         content: this.data.wishContent,
-        image: {
-          head: { src: `${this.data.userInfo.avatarUrl}`, width: 40, height: 40 },
-          gap: 1
-        }
+        userInfo: this.data.userInfo
       }
 
       this.setData({

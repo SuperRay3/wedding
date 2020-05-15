@@ -21,7 +21,7 @@ Page({
       duration: 40,
       lineHeight: 2,
       mode: 'separate',
-      padding: [10, 0, 10, 0],
+      padding: [20, 20, 20, 20],
       maxLength: 50,
       safeGap: 4,
       tunnelShow: false,
