@@ -27,7 +27,3 @@
 .iconenvelope:before {
   content: "\e631";
 }
-
-.iconfeather::before {
-  content: "\e636";
-}

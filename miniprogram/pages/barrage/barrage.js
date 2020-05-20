@@ -5,10 +5,10 @@ let isOffline = false
 // 轮询弹幕配置
 let loopBarrageConfig = {
   skip: 0,
-  limit: 1
+  limit: 20
 }
 // 轮询弹幕间隔
-let loopBarrageTick = 3000
+let loopBarrageTick = 6000
 
 Page({
   data: {

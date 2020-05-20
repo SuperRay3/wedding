@@ -12,7 +12,6 @@ Component({
     isInit: true,
     isOpen: false,
     isSend: false,
-    showOneMore: '',
     userInfo: {nickName: '', avatarUrl: ''},
     wishContent: '',
     sendBtnLoading: false,
@@ -71,11 +70,7 @@ Component({
         timestamp: +new Date(),
         color: randomHexColor(),
         content: this.data.wishContent,
-        userInfo: this.data.userInfo,
-        image: {
-          head: {src: this.data.userInfo.avatarUrl}, // 弹幕头部添加图片
-          gap: 4
-        }
+        userInfo: this.data.userInfo
       }
 
       this.setData({
@@ -100,18 +95,19 @@ Component({
             isSend: true
           })
 
+          setTimeout(() => {
+            this.setData({
+              isInit: true,
+              isSend: false
+            })
+          }, 4500)
+
           // 将新增的弹幕通过事件传递给父组件
           this.triggerEvent('sendBarrage', newBarrage)
           
           // 重置弹幕数据存储对象
           this.resetBarrageBind()
 
-          // 展示再写一封的按钮
-          setTimeout(() => {
-            this.setData({
-              showOneMore: 'show'
-            })
-          }, 4200)
         }, rej => {
           wx.showToast({
             title: '发送失败！',
@@ -132,15 +128,6 @@ Component({
     resetBarrageBind() {
       this.setData({
         wishContent: ''
-      })
-    },
-
-    oneMore() {
-      this.setData({
-        isInit: true,
-        isOpen: false,
-        isSend: false,
-        showOneMore: 'hide'
       })
     }
   }

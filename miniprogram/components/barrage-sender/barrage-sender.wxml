@@ -54,9 +54,4 @@
       <view class="flap top-flap"></view>
     </view>
   </view>
-  <view class="one-more-wrapper">
-    <view class="one-more-container">
-      <view class="icon iconfont iconfeather {{showOneMore}}" catch:tap="oneMore"></view>
-    </view>
-  </view>
 </view>
