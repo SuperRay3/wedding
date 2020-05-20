@@ -1,4 +1,6 @@
 <view class="barrage-container">
     <barrage class="barrage"></barrage>
 </view>
-<barrage-sender bind:sendBarrage="onSendBarrage" />
+<view class="barrage-sender-container">
+    <barrage-sender bind:sendBarrage="onSendBarrage" />
+</view>

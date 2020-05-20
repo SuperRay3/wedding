@@ -127,28 +127,3 @@
     transform: scale(1.2, 1);
   }
 }
-
-/* onemore btn */
-@keyframes oneMoreBtnShadowShow {
-  0% {
-    opacity: 0;
-    box-shadow: none;
-  }
-
-  100% {
-    opacity: 1;
-    box-shadow:2px 2px 17px rgb(63, 63, 63);
-  }
-}
-
-@keyframes oneMoreBtnShadowHide {
-  0% {
-    opacity: 1;
-    box-shadow:2px 2px 17px rgb(63, 63, 63);
-  }
-
-  100% {
-    opacity: 0;
-    box-shadow: none;
-  }
-}

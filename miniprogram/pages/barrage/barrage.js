@@ -17,7 +17,7 @@ Page({
 
   onReady() {
     this.initBarrageComp()
-    this.loopBarrageData()
+    // this.loopBarrageData()
   },
 
   /**

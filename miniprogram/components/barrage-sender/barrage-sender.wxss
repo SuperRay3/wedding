@@ -2,10 +2,9 @@
 @import "./animations.wxss";
 
 .main-wrapper {
-  height: 65%;
+  height: 100%;
   position: relative;
   perspective: 800px;
-  overflow: hidden;
 }
 
 
