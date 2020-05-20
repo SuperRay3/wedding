@@ -80,7 +80,6 @@ Page({
     } else {
       try {
         willLoadedBarrage = await this.getBarrage(loopBarrageConfig)
-        console.log(loopBarrageConfig.skip)
         if (willLoadedBarrage.length > 0) offlineBarrage = [...offlineBarrage, ...willLoadedBarrage]
       } catch(error) {
         console.error(`接口获取弹幕数据失败, 当前坐标 ${loopBarrageConfig}`)
@@ -89,6 +88,7 @@ Page({
     }
     
     this.barrage.addData(willLoadedBarrage)
+    console.log(offlineBarrage)
 
     if (willLoadedBarrage.length === 0) {
       // 循环过一边后，开启本地缓存弹幕

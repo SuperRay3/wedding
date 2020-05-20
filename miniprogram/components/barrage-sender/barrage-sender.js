@@ -69,8 +69,12 @@ Component({
       const newBarrage = {
         timestamp: +new Date(),
         color: randomHexColor(),
-        content: this.data.wishContent,
-        userInfo: this.data.userInfo
+        content: `${this.data.wishContent.trim()}           `,
+        userInfo: this.data.userInfo,
+        image: {
+          head: {src: this.data.userInfo.avatarUrl, width: 30, height: 30},
+          gap: 2
+        }
       }
 
       this.setData({
