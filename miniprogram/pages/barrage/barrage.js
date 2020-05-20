@@ -1,32 +1,23 @@
-// 最新获取的弹幕，用于 addData 方法装填最新弹幕
-let stepLastestBarrage = []
+// 缓存弹幕，用于循环过一次后离线使用。因为微信云数据库有请求次数限制
+let offlineBarrage = []
+// 是否切换为离线弹幕数据
+let isOffline = false
 // 轮询弹幕配置
 let loopBarrageConfig = {
   skip: 0,
-  limit: 20
+  limit: 1
 }
 // 轮询弹幕间隔
-let loopBarrageTick = 6000
+let loopBarrageTick = 3000
 
 Page({
   data: {
     barrage: null,
   },
 
-  async onReady() {
-    try {
-      stepLastestBarrage = await this.getBarrage(loopBarrageConfig)
-      loopBarrageConfig.skip += loopBarrageConfig.limit
-
-      this.initBarrageComp()
-    } catch(error) {
-      loopBarrageConfig.skip -= loopBarrageConfig.limit
-    }
-
-    // 开启轮询弹幕
-    // setTimeout(() => {
-    //   this.loopBarrageData()
-    // }, loopBarrageTick)
+  onReady() {
+    this.initBarrageComp()
+    this.loopBarrageData()
   },
 
   /**
@@ -46,7 +37,6 @@ Page({
       tunnelShow: false,
     })
     this.barrage.open()
-    this.barrage.addData([stepLastestBarrage])
   },
 
   /**
@@ -65,7 +55,6 @@ Page({
           .skip(fullParam.skip)
           .limit(fullParam.limit)
           .get()
-        console.log(data)
         res(data)
       } catch (error) {
         console.error('祝福获取失败！')
@@ -76,28 +65,42 @@ Page({
   },
 
   /**
-   * 轮询弹幕数据
+   * 装填弹幕数据
    */
 
-  loopBarrageData() {
-    this.getBarrage(loopBarrageConfig)
-      .then(res => {
-        stepLastestBarrage = res
+  async loopBarrageData() {
+    let willLoadedBarrage = []
+    // 当前游标底线
+    const currIndL = loopBarrageConfig.skip
+    // 当前游标上线
+    const currIndU = loopBarrageConfig.skip + loopBarrageConfig.limit
 
-        // 弹幕全部轮询完后，重置 skip 以达到循环播放的目的
-        if (res.length === 0) {
-          loopBarrageConfig.skip = 0
-        } else {
-          this.barrage.addData(stepLastestBarrage)
-          loopBarrageConfig.skip += loopBarrageConfig.limit
-        }
-
-        setTimeout(() => {
-          this.loopBarrageData()
-        }, loopBarrageTick)
-      }, rej => {
+    if (isOffline) {
+      willLoadedBarrage = offlineBarrage.slice(currIndL, currIndU)
+    } else {
+      try {
+        willLoadedBarrage = await this.getBarrage(loopBarrageConfig)
+        console.log(loopBarrageConfig.skip)
+        if (willLoadedBarrage.length > 0) offlineBarrage = [...offlineBarrage, ...willLoadedBarrage]
+      } catch(error) {
+        console.error(`接口获取弹幕数据失败, 当前坐标 ${loopBarrageConfig}`)
         loopBarrageConfig.skip -= loopBarrageConfig.limit
-      })
+      }
+    }
+    
+    this.barrage.addData(willLoadedBarrage)
+
+    if (willLoadedBarrage.length === 0) {
+      // 循环过一边后，开启本地缓存弹幕
+      if (offlineBarrage.length > 0) loopBarrageConfig.skip = 0
+      isOffline = true
+    } else {
+      loopBarrageConfig.skip += loopBarrageConfig.limit
+    }
+
+    setTimeout(() => {
+      this.loopBarrageData()
+    }, loopBarrageTick)
   },
 
   /**
@@ -107,6 +110,7 @@ Page({
   onSendBarrage(e) {
     if (e.detail) {
       this.barrage.addData([e.detail])
+      isOffline = false
     }
   },
 })

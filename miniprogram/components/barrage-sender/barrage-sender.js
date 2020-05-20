@@ -71,7 +71,11 @@ Component({
         timestamp: +new Date(),
         color: randomHexColor(),
         content: this.data.wishContent,
-        userInfo: this.data.userInfo
+        userInfo: this.data.userInfo,
+        image: {
+          head: {src: this.data.userInfo.avatarUrl}, // 弹幕头部添加图片
+          gap: 4
+        }
       }
 
       this.setData({
