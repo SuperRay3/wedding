@@ -24,7 +24,7 @@
 
 /* macintosh start */
 .macintosh {
-  width: 75%;
+  width: 90%;
   height: 100%;
   margin: 0 auto;
   position: relative;
@@ -41,9 +41,9 @@
   background-image: lineear-gradient(
     #DDDBC2, #DFDAC4
   );
-  background-image: conic-gradient(
+  /* background-image: conic-gradient(
     #DDDBC2 0 10.5%, #ECECD5 11% 11.5%, #CECDAF 12% 38%, #C8C4A7 39% 61.5%, #C7C3A6 62% 88%, #DFDAC4 88.5% 89%, #DDDBC2 89.25%
-  ); /* Not supported everywhere :( */
+  ); */
   box-shadow: 0 60rpx 20rpx -20rpx rgba(142,137,97,0.5);
 }
 

@@ -29,7 +29,7 @@
               value="{{wishContent}}"
               show-confirm-bar="{{false}}" 
               disabled="{{!isOpen}}" 
-              maxlength="50"
+              maxlength="60"
               bind:input="typeWish"/>
           </view>
           <!-- 提交 -->

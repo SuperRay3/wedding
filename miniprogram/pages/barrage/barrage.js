@@ -28,11 +28,11 @@ Page({
     const barrageComp = this.selectComponent('.barrage')
     this.barrage = barrageComp.getBarrageInstance({
       font: 'bold 18px sans-serif',
-      duration: 40,
+      duration: 50,
       lineHeight: 2,
       mode: 'separate',
       padding: [10, 0, 10, 0],
-      maxLength: 50,
+      maxLength: 70,
       safeGap: 4,
       tunnelShow: false,
     })
@@ -109,9 +109,9 @@ Page({
 
   onSendBarrage(e) {
     if (e.detail) {
+      offlineBarrage.push(e.detail)
       setTimeout(() => {
         this.barrage.addData([e.detail])
-        offlineBarrage.push(e.detail)
       }, 4200)
     }
   },
