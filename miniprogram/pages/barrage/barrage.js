@@ -111,7 +111,7 @@ Page({
     if (e.detail) {
       setTimeout(() => {
         this.barrage.addData([e.detail])
-        isOffline = false
+        offlineBarrage.push(e.detail)
       }, 4200)
     }
   },
