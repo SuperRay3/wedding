@@ -1,5 +1,19 @@
-page {
-  background-color: #79a8a9;
+.barrage-page-wrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fcc72e;
+}
+
+.rainbow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  width: 316rpx;
+  height: 115%;
+  box-shadow: 36rpx 0 #6bc460 inset, 72rpx 0 #fcc72e inset, 108rpx 0 #fd9731 inset, 144rpx 0 #eb5350 inset, 180rpx 0 #ab55a6 inset, 216rpx 0 #0189b4 inset;
+  transform: translateX(-50%) rotateZ(45deg);
 }
 
 .barrage-container {
@@ -8,10 +22,188 @@ page {
   height: 50%;
 }
 
+/* macintosh start */
+.macintosh {
+  width: 75%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 80rpx 60rpx -60rpx rgba(0,0,0,0.4);
+}
+
+.monitor {
+  z-index: 2;
+  width: 100%;
+  height: calc(100% - 70rpx);
+  border-radius: 15rpx;
+  background-color: #DDDBC2;
+  position: absolute;
+  background-image: lineear-gradient(
+    #DDDBC2, #DFDAC4
+  );
+  background-image: conic-gradient(
+    #DDDBC2 0 10.5%, #ECECD5 11% 11.5%, #CECDAF 12% 38%, #C8C4A7 39% 61.5%, #C7C3A6 62% 88%, #DFDAC4 88.5% 89%, #DDDBC2 89.25%
+  ); /* Not supported everywhere :( */
+  box-shadow: 0 60rpx 20rpx -20rpx rgba(142,137,97,0.5);
+}
+
+.monitor-inner {
+  width: 90%;
+  height: calc(100% - 48rpx);
+  background-image: linear-gradient(#CAC6A9, #CFCEB0);
+  margin: auto;
+  position: absolute;
+  top: 22rpx;
+  left: 0;
+  right: 0;
+  border-radius: 5rpx;
+}
+
+.screen-cutout {
+  width: 90%;
+  height: calc(100% - 140rpx);
+  background-color: #DDDBC2;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20rpx;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    #938F6A, #E0DFC3
+  ); 
+  background-image: conic-gradient(
+    #938F6A 12.5%, #B5B293 15.5% 33%, #E0DFC3 34% 65.5%, #C2C1A2 66.5% 83.5%, #938F6A 86.5%
+  ); 
+}
+
+.screen {
+  width: 90%;
+  height: calc(100% - 30rpx);
+  background-color: #4F5555;
+  background-image: radial-gradient(#525B5A, #50585A);
+  margin: auto;
+  position: absolute;
+  top: 15rpx;
+  left: 0;
+  right: 0;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx 10rpx #2B3030 inset;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50rpx;
+  height: 50rpx;
+  background-image: radial-gradient(#C9C6B5, #CBC9BA);
+  border-radius: 2rpx;
+  position: absolute;
+  left: 22rpx;
+  bottom: 22rpx;
+  padding-left: 3.5rpx;
+  box-shadow: 0 0 2rpx 0 #979181 inset;
+}
+
+.opening {
+  width: 155rpx;
+  height: 15rpx;
+  background-image: linear-gradient(
+    #BEBB9C, #CAC8A7 74.5% 75.5%);
+  background-image: conic-gradient(
+    #BEBB9C 0% 23.5%, #C7C2A2 24.5% 25%, #DCD8BD 26% 73.5%, #CAC8A7 74.5% 75.5%, #BEBB9C 76.5%);
+  position: absolute;
+  bottom: 55rpx;
+  right: 21rpx;
+  border-radius: 4rpx;
+}
+
+.opening-inner {
+  width: 126rpx;
+  height: 8rpx;
+  background-color: #181914;
+  border-radius: 2rpx;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3.5rpx;
+}
+
+.foot {
+  width: 100%;
+  height: 95rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 7rpx;
+  background-image: linear-gradient(#BBB497, #C1BE9F);
+  box-shadow: 14rpx 0 3rpx -7rpx #CCCAB1 inset,
+    -14rpx 0 3rpx -7rpx #CECDB1 inset,
+    0 32rpx 3px -7rpx #C1BE9F inset,
+    0 -6rpx 3rpx -4rpx #AEAA87 inset; 
+}
+
+.inset {
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #C3BEA0;
+  position: absolute;
+  bottom: 20rpx;
+  left: 35rpx;
+  border-radius: 2rpx;
+  box-shadow: 0 0 2rpx #C9C3A3 inset,
+    0 0 2rpx 1rpx #BCB694;
+}
+
+.cable-container {
+  width: 60rpx;
+  height: 30rpx;
+  background-color: #C3BEA0;
+  position: absolute;
+  right: 30rpx;
+  bottom: 15rpx;
+  border-radius: 3rpx;
+  box-shadow: 0 2rpx 1rpx -1rpx #D0CBAE inset,
+    4rpx 0 1rpx -1rpx #BAB492 inset,
+    -5rpx 0 2rpx -2rpx #A8A281 inset,
+    0 -4rpx 2rpx -3rpx #ADA88B inset;
+}
+
+.cable-hole {
+  width: 18rpx;
+  height: 20rpx;
+  background-color: #848580;
+  position: absolute;
+  top: 5rpx;
+  right: 7rpx;
+  border-radius: 3rpx;
+  box-shadow: 0 -4rpx 0.5rpx -0.5rpx rgba(25,25,25,0.2) inset,
+    -2rpx 0 0.5rpx -0.5rpx rgba(25,25,25,0.2) inset,
+    2rpx 0 0.5rpx -0.5rpx rgba(25,25,25,0.2) inset;
+  background-image: linear-gradient(
+    #848580 20%,
+    transparent 20% 80%,
+    #848580 80%
+  ), linear-gradient(
+    90deg,
+    transparent 30%,
+    #181914 30% 70%,
+    transparent 70%
+  );
+}
+
+
+
+
+/* macintosh end */
+
 .barrage-sender-container {
   z-index: 5;
   position: relative;
   height: 50%;
-  background-color: #fff;
 }
 

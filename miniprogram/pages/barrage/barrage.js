@@ -17,7 +17,7 @@ Page({
 
   onReady() {
     this.initBarrageComp()
-    // this.loopBarrageData()
+    this.loopBarrageData()
   },
 
   /**
@@ -109,8 +109,10 @@ Page({
 
   onSendBarrage(e) {
     if (e.detail) {
-      this.barrage.addData([e.detail])
-      isOffline = false
+      setTimeout(() => {
+        this.barrage.addData([e.detail])
+        isOffline = false
+      }, 4200)
     }
   },
 })

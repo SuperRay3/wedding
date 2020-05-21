@@ -1,6 +1,32 @@
-<view class="barrage-container">
-    <barrage class="barrage"></barrage>
-</view>
-<view class="barrage-sender-container">
-    <barrage-sender bind:sendBarrage="onSendBarrage" />
+<view class="barrage-page-wrapper">
+    <view class="rainbow"></view>
+    <view class="barrage-container">
+        <view class="macintosh">
+            <view class="monitor">
+                <view class="monitor-inner">
+                    <view class="screen-cutout">
+                        <view class="screen">
+                            <!-- 弹幕组件 -->
+                            <barrage class="barrage"></barrage>
+                        </view>
+                    </view>
+                    <view class="logo">
+                        <view class="logo-icon">🤞</view>
+                    </view>
+                    <view class="opening">
+                        <view class="opening-inner"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="foot">
+                <view class="inset"></view>
+                <view class="cable-container">
+                <view class="cable-hole"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="barrage-sender-container">
+        <barrage-sender bind:sendBarrage="onSendBarrage" />
+    </view>
 </view>
