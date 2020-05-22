@@ -1,3 +1,5 @@
+@import '../../style/smartisan-note';
+
 .wedding-invitation {
   z-index: 4;
   position: fixed;
@@ -62,70 +64,7 @@
   opacity: 1;
 }
 
-.cover-content .content-inside {
-  display:flex;
-  flex-direction: column;
-	align-items: stretch;
-  height: 100%;
-  color: #a9895d;
-  background: #fffcf6;
-  text-align: center;
-  overflow: auto;
-  box-sizing: border-box;
-  border-radius: 4px;
-  box-shadow: 0 3px 8px rgba(69,18,10,.4);
-}
 
-.cover-content .content-inside .content-border {
-  flex: 1;
-  display:flex;
-  flex-direction: column;
-	align-items: stretch;
-  border: 2px solid #e9e5d9;
-  padding: 2px;
-  margin: 15px;
-  position: relative;
-}
-
-.content-inside .content-border .corner {
-  width: 2px;
-  height: 2px;
-  border: 2px solid #e9e5d9;
-  position: absolute;
-}
-
-.content-border .corner.corner-top-left {
-  top: -6px;
-  left: -6px;
-}
-
-.content-border .corner.corner-top-right {
-  top: -6px;
-  right: -6px;
-}
-
-.content-border .corner.corner-bottom-left {
-  bottom: -6px;
-  left: -6px;
-}
-
-.content-border .corner.corner-bottom-right {
-  bottom: -6px;
-  right: -6px;
-}
-
-.content-inside .content-border .content-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #e9e5d9;
-  position: relative;
-  padding: 10px;
-  color: #645647;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 .content-container .content-info {
   flex-grow: .8;

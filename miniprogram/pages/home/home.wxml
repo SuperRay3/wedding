@@ -8,11 +8,15 @@
     </view>
     <text class="app-name">Love Studio Code</text>
   </view>
+
+  <!-- 指导手册 -->
+  <cheatsheet />
+
   <!-- 自动代码区 -->
   <code-type wx:if="{{showIndex}}" class="code-type" />
 
   <!-- loading -->
-  <loading wx:if="{{!showIndex}}"></loading>
+  <loading wx:if="{{!showIndex}}" />
 
   <!-- terminal -->
   <terminal />

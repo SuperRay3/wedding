@@ -1,2 +1,12 @@
-<!--components/cheatsheet.wxml-->
-<text>components/cheatsheet.wxml</text>
+<view class="cheatsheet-wrapper cover-content">
+    <view class="content-inside">
+        <view class="content-border">
+        <view class="corner corner-top-left"></view>
+        <view class="corner corner-top-right"></view>
+        <view class="corner corner-bottom-left"></view>
+        <view class="corner corner-bottom-right"></view>
+        <view class="content-container">
+        </view>
+        </view>
+    </view>
+</view>
