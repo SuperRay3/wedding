@@ -1,6 +1,5 @@
 const loadingTxt = require('./loadingTxt')
 const Loading = require('../../class/loading')
-// const dom = require('./carDom')
 const computedBehavior = require('miniprogram-computed')
 const app = getApp()
 
@@ -9,7 +8,6 @@ Component({
   data: {
     loadingTxt: loadingTxt,
     currTimeInd: 0 // 当前时间走到的位置
-    // domStr: dom
   },
 
   computed: {
@@ -21,7 +19,7 @@ Component({
   lifetimes: {
     ready: function() {
       const loading = new Loading({
-        time: 10000,
+        time: 6000,
         tickCB: (data) => {
           this.setData(data)
           this.getLoadingTxt(data.currTime)

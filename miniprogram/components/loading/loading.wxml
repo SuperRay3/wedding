@@ -1,10 +1,8 @@
 <view class="main-wrapper">
   <view class="loading-wrapper">
     <view class="container">
-      <view class="prompt">loading</view>
       <view class="text">{{currLoadingTxt.value}}</view>
       <view class="bar" style="width:{{currVal}}%"></view>
     </view>
-    <!-- <rich-text nodes="{{domStr}}"></rich-text> -->
   </view>
 </view>
