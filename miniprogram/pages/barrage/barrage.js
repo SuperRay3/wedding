@@ -9,6 +9,8 @@ let loopBarrageConfig = {
 }
 // 轮询弹幕间隔
 let loopBarrageTick = 6000
+// timer
+let timer = null
 
 Page({
   data: {
@@ -17,7 +19,14 @@ Page({
 
   onReady() {
     this.initBarrageComp()
+    console.log({ isOffline, skip: loopBarrageConfig.skip, timer })
     this.loopBarrageData()
+  },
+
+  onUnload() {
+    this.resetGlobalParam()
+    this.barrage.close()
+    timer = clearTimeout(timer)
   },
 
   /**
@@ -86,9 +95,8 @@ Page({
         loopBarrageConfig.skip -= loopBarrageConfig.limit
       }
     }
-    
+
     this.barrage.addData(willLoadedBarrage)
-    console.log(offlineBarrage)
 
     if (willLoadedBarrage.length === 0) {
       // 循环过一边后，开启本地缓存弹幕
@@ -98,7 +106,7 @@ Page({
       loopBarrageConfig.skip += loopBarrageConfig.limit
     }
 
-    setTimeout(() => {
+    timer = setTimeout(() => {
       this.loopBarrageData()
     }, loopBarrageTick)
   },
@@ -110,9 +118,22 @@ Page({
   onSendBarrage(e) {
     if (e.detail) {
       offlineBarrage.push(e.detail)
-      setTimeout(() => {
+      timer = setTimeout(() => {
         this.barrage.addData([e.detail])
       }, 4200)
     }
   },
+
+  /**
+   * 重置全局缓存变量
+   */
+
+  resetGlobalParam() {
+    offlineBarrage = []
+    isOffline = false
+    loopBarrageConfig = {
+      skip: 0,
+      limit: 20
+    }
+  }
 })

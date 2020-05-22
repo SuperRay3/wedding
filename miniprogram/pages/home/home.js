@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    showIndex: false,
+    showIndex: true,
     showTerminal: false
   },
 
@@ -12,7 +12,7 @@ Page({
         this.setData({
           showIndex: true
         })
-      }, 800)
+      })
     })
   },
 

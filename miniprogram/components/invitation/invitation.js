@@ -16,7 +16,7 @@ Component({
   watch: {
     'touchData.direction': function(newVal) {
       if (newVal) {
-        if (['left', 'right'].includes(newVal.direct)) {
+        if (['up', 'down'].includes(newVal.direct)) {
           this.closeInvitation()
           app.event.emit('closeInvitaion')
         }
