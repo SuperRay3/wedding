@@ -19,7 +19,9 @@ Component({
     // 指令容器需要滚动的高，用于实现一直滚动到底部
     codeContentScrollTop: 0,
     // 指令区域是否平滑滚动
-    terminalScrollSmooth: true
+    terminalScrollSmooth: true,
+    // 命令输入框的 placeholder
+    placeholder: '输入 help 解锁更多玩法'
   },
 
   lifetimes: {
@@ -47,7 +49,7 @@ Component({
 
         setTimeout(() => {
           // 初始化自动输入代码启动
-          this.data.terminalObj.inputCmd("npm run start").then(rst => {
+          this.data.terminalObj.inputCmd("start").then(rst => {
             this.setData({
               terminalObj: rst
             })
@@ -66,10 +68,7 @@ Component({
 
       // 监听关闭信封
       app.event.on("closeInvitaion", async () => {
-        const res = await this.data.terminalObj.genNewCmd()
-         this.setData({
-          "terminalObj.history": res.history
-        })
+        await this.generBlankCommand()
 
         // 保持滚动在底部
         stayBtP.checkScroll()
@@ -141,11 +140,12 @@ Component({
         clear: async () => {
           this.clearTerminal()
         },
+        help: async () => {
+          await this.stepOutputRst(rst.steps)
+          await this.generBlankCommand()
+        },
         default: async () => {
-          const res = await this.data.terminalObj.genNewCmd()
-          this.setData({
-            "terminalObj.history": res.history
-          })
+          await this.generBlankCommand()
         }
       }
 
@@ -191,6 +191,17 @@ Component({
         terminalScrollSmooth: true
       })
 
+    },
+
+    /**
+     * 生成一条空命令
+     */
+
+    async generBlankCommand() {
+      const res = await this.data.terminalObj.genNewCmd()
+        this.setData({
+        "terminalObj.history": res.history
+      })
     },
 
     /**

@@ -1,5 +1,5 @@
 const cmds = {
-  'npm run start': {
+  'start': {
     type: 'stepDebugging',
     detail: 'start',
     steps: [
@@ -16,6 +16,13 @@ const cmds = {
     steps: [
       { label: '重启中...', type: 'default' },
       { label: '重启成功!', type: 'success' },
+    ]
+  },
+  'help': {
+    type: 'stepDebugging',
+    detail: 'help',
+    steps: [
+      { label: '获取成功!', type: 'success' }
     ]
   },
   'clear': {

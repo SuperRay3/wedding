@@ -36,7 +36,7 @@
     <view class="input-area">
       <!-- 命令输入 -->
       <view class="cmd-input-wrapper">
-        <input class="cmd-input" value="{{cmdIpt}}" bind:input="cmdInput" bind:confirm="sendCmd" placeholder="请输入指令" confirm-type="send" confirm-hold="{{true}}" />
+        <input class="cmd-input" value="{{cmdIpt}}" bind:input="cmdInput" bind:confirm="sendCmd" placeholder="{{placeholder}}" confirm-type="send" confirm-hold="{{true}}" />
         <button class="btn send" size="mini" disabled="{{!cmdIpt}}" bind:tap="sendCmd">发送</button>
       </view>
       <!-- 操作按钮 -->
