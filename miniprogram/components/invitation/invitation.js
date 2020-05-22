@@ -43,7 +43,7 @@ Component({
     },
 
     // 收起邀请函
-    closeInvitation() {
+    closeInvitation(cb) {
       this.setData({
         isOpening: false
       })
@@ -52,17 +52,23 @@ Component({
         this.setData({
           canOpen: false
         })
+
+        if (cb) cb()
       }, 660)
     },
 
     // 跳转地图页
     navToMapPage() {
-      wx.navigateTo({ url: '../../pages/map/map' }) 
+      this.closeInvitation(() => {
+        wx.navigateTo({ url: '../../pages/map/map' }) 
+      })
     },
 
     // 跳转弹幕页
     navToBarragePage() {
-      wx.navigateTo({ url: '../../pages/barrage/barrage' }) 
+      this.closeInvitation(() => {
+        wx.navigateTo({ url: '../../pages/barrage/barrage' }) 
+      })
     },
 
     // 获取用户信息

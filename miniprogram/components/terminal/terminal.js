@@ -129,28 +129,28 @@ Component({
      */
 
     async matchExeRst(rst) {
-      switch(rst.detail) {
-        case 'start':
+      const actMap = {
+        start: async () => {
           await this.stepOutputRst(rst.steps)
           app.event.emit("openInvitation")
-          break
-        
-        case 'reopen':
+        },
+        reopen: async () => {
           await this.stepOutputRst(rst.steps)
           app.event.emit("openInvitation")
-          break
-        
-          case 'clear':
+        },
+        clear: async () => {
           this.clearTerminal()
-          break
-
-        default: 
+        },
+        default: async () => {
           const res = await this.data.terminalObj.genNewCmd()
           this.setData({
             "terminalObj.history": res.history
           })
-          break
+        }
       }
+
+      // 执行
+      actMap[rst.detail] ? actMap[rst.detail]() : actMap['default']()
     },
 
     /**
