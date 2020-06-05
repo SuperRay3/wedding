@@ -6,6 +6,10 @@
         <view class="corner corner-bottom-left"></view>
         <view class="corner corner-bottom-right"></view>
         <view class="content-container">
+            <view class="content-list">
+                <view class="content-row blockquote">点击指令查看运行效果~</view>
+                <view class="content-row" wx:for="{{contentRow}}" wx:key="id"><text class="icon">{{ item.icon }}</text> <text class="cmd">{{ item.cmd.name }}</text><text class="cmd-des">{{ item.cmd.des }}</text></view>
+            </view>
         </view>
         </view>
     </view>
