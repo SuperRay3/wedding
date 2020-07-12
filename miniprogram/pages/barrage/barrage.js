@@ -118,9 +118,7 @@ Page({
   onSendBarrage(e) {
     if (e.detail) {
       offlineBarrage.push(e.detail)
-      timer = setTimeout(() => {
-        this.barrage.addData([e.detail])
-      }, 4200)
+      this.barrage.addData([e.detail])
     }
   },
 

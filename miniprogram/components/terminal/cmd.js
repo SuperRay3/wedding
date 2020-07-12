@@ -19,10 +19,15 @@ const cmds = {
     ]
   },
   'help': {
-    type: 'stepDebugging',
+    type: 'textListShow',
     detail: 'help',
-    steps: [
-      { label: '获取成功!', type: 'success' }
+    des: `这里包含了所有显示玩法，点击即可体验。`,
+    additionDes: '更多隐式秘密等你探索～',
+    listDetail: [
+      { id: 1, icon: "😀", cmd: { name: 'start', des: '打开邀请函' } },
+      { id: 2, icon: "😁", cmd: { name: 'reopen', des: '再看一遍邀请函' } },
+      { id: 3, icon: "😋", cmd: { name: 'clear', des: '清空控制台' } },
+      { id: 4, icon: "🙃", cmd: { name: 'help', des: '帮助' } }
     ]
   },
   'clear': {

@@ -10,7 +10,7 @@
   </view>
 
   <!-- 指导手册 -->
-  <cheatsheet />
+  <!-- <cheatsheet /> -->
 
   <!-- 自动代码区 -->
   <code-type wx:if="{{showIndex}}" class="code-type" />

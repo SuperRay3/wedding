@@ -92,6 +92,12 @@ Component({
             duration: 1500
           })
 
+          // 将新增的弹幕通过事件传递给父组件
+          this.triggerEvent('sendBarrage', newBarrage)
+          
+          // 重置弹幕数据存储对象
+          this.resetBarrageBind()
+
           // 打包祝福
           this.setData({
             isInit: false,
@@ -105,13 +111,6 @@ Component({
               isSend: false
             })
           }, 4500)
-
-          // 将新增的弹幕通过事件传递给父组件
-          this.triggerEvent('sendBarrage', newBarrage)
-          
-          // 重置弹幕数据存储对象
-          this.resetBarrageBind()
-
         }, rej => {
           wx.showToast({
             title: '发送失败！',

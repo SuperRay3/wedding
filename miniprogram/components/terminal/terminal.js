@@ -141,7 +141,6 @@ Component({
           this.clearTerminal()
         },
         help: async () => {
-          await this.stepOutputRst(rst.steps)
           await this.generBlankCommand()
         },
         default: async () => {
@@ -194,14 +193,32 @@ Component({
     },
 
     /**
+     * textListShow 类型的控制台内输出直接点击运行
+     */
+
+    directRunCmd(event) {
+      this.setData({
+        cmdIpt: event.currentTarget.dataset.cmd
+      })
+      // 保持类实例同步
+      this.data.terminalObj.inputCmd(event.currentTarget.dataset.cmd)
+      // 执行命令
+      this.sendCmd()
+    },
+    
+    /**
      * 生成一条空命令
      */
 
     async generBlankCommand() {
-      const res = await this.data.terminalObj.genNewCmd()
-        this.setData({
-        "terminalObj.history": res.history
-      })
+      const terminalObj = this.data.terminalObj
+      const hisLen = terminalObj.history.length
+      if (!hisLen || (hisLen && terminalObj.history[hisLen - 1].cmd)) {
+        const res = await this.data.terminalObj.genNewCmd()
+          this.setData({
+          "terminalObj.history": res.history
+        })
+      }
     },
 
     /**
@@ -230,11 +247,13 @@ Component({
      */
 
     clearTerminal() {
-      this.data.terminalObj.clear().then(rst => {
+      this.data.terminalObj.clear().then(async rst => {
         this.setData({
           terminalObj: rst,
           codeContentScrollTop: 0
         })
+
+        await this.generBlankCommand()
 
         // 重置保持滚动底部功能的数据
         stayBtP.resetScroll()

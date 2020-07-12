@@ -62,7 +62,7 @@ class Terminal {
         res(this)
         return
       }
-
+      
       const length = this.history.length
       const lastCmd = this.history[length - 1]
 
@@ -79,15 +79,6 @@ class Terminal {
   clear() {
     return new Promise(res => {
       this.history.length = 0
-      
-      // 插入一条空白的指令
-      this.history.push({
-        cmd: '',
-        rst: '',
-        stamp: +new Date(),
-        isExed: false
-      })
-
       res(this)
     })
   }

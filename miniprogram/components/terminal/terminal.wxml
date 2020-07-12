@@ -11,24 +11,33 @@
     <scroll-view id="scroll-view" class="terminal-content" scroll-y="true" scroll-top="{{codeContentScrollTop}}" scroll-with-animation="{{terminalScrollSmooth}}">
       <view id="terminal-content-p">
         <view class="login-date">{{terminalObj.initDate}}</view>
-        <view class="cmds-wrapper" wx:for="{{terminalObj.history}}" wx:key="stamp">
+        <view class="cmds-wrapper" wx:for="{{terminalObj.history}}" wx:for-item="temObj" wx:key="stamp">
           <view class="cmd">
             <view class="user-info">{{terminalObj.userInfo}}</view>
-            <view class="cmd-content">{{item.cmd}}</view>
-            <view class="input-cursor" wx:if="{{!item.isExed}}"></view>
+            <view class="cmd-content">{{temObj.cmd}}</view>
+            <view class="input-cursor" wx:if="{{!temObj.isExed}}"></view>
           </view>
-          <view class="rst" wx:if="{{item.rst}}">
-            <view wx:if="{{item.rst.type === 'stepDebugging'}}">
-              <view class="step" wx:for="{{item.rst.steps}}" wx:key="stepStamp">
-                <view class="step-item-wrapper" wx:if="{{item.isExed}}">
-                  <view class="step-item time">{{item.time}}</view>
-                  <view class="step-item label">{{item.label}}</view>
-                  <view class="step-item duration">{{item.duration}} ms</view>
+          <view class="rst" wx:if="{{temObj.rst}}">
+            <!-- 过程输出类型的指令 -->
+            <view wx:if="{{temObj.rst.type === 'stepDebugging'}}">
+              <view class="step" wx:for="{{temObj.rst.steps}}" wx:for-item="stepItem"  wx:key="stepStamp">
+                <view class="step-item-wrapper" wx:if="{{stepItem.isExed}}">
+                  <view class="step-item time">{{stepItem.time}}</view>
+                  <view class="step-item label">{{stepItem.label}}</view>
+                  <view class="step-item duration">{{stepItem.duration}} ms</view>
                 </view>
               </view>
             </view>
+            <!-- 文本展示类型 -->
+            <view wx:else-if="{{temObj.rst.type === 'textListShow'}}" class="text-list-cmd">
+              <view class="des">{{ temObj.rst.des }}</view>
+              <view class="addition-des">{{ temObj.rst.additionDes }}</view>
+              <view class="list-item" wx:for="{{temObj.rst.listDetail}}" wx:for-item="listItem" wx:key="id">
+                <text class="icon">{{ listItem.icon }}</text> <text class="cmd">{{ listItem.cmd.name }}</text><text class="cmd-des" data-cmd="{{listItem.cmd.name}}" bind:tap="directRunCmd">{{ listItem.cmd.des }}</text>
+              </view>
+            </view>
             <!-- 没有相应的指令 -->
-            <view wx:else-if="{{item.rst.type === 'none'}}">{{item.rst.text}}</view>
+            <view wx:else-if="{{temObj.rst.type === 'none'}}">{{temObj.rst.text}}</view>
           </view>
         </view>
       </view>

@@ -1,4 +1,5 @@
 /* components/cheatsheet.wxss */
+@import "../../style/animate.wxss";
 @import '../../style/smartisan-note';
 
 .cheatsheet-wrapper {

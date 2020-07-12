@@ -1,4 +1,4 @@
-<view class="cheatsheet-wrapper cover-content">
+<view class="cheatsheet-wrapper cover-content animated bounce">
     <view class="content-inside">
         <view class="content-border">
         <view class="corner corner-top-left"></view>

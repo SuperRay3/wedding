@@ -60,6 +60,7 @@ Component({
     // 跳转地图页
     navToMapPage() {
       this.closeInvitation(() => {
+        app.event.emit('closeInvitaion')
         wx.navigateTo({ url: '../../pages/map/map' }) 
       })
     },
@@ -67,6 +68,7 @@ Component({
     // 跳转弹幕页
     navToBarragePage() {
       this.closeInvitation(() => {
+        app.event.emit('closeInvitaion')
         wx.navigateTo({ url: '../../pages/barrage/barrage' }) 
       })
     },
