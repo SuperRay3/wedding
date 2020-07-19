@@ -133,6 +133,11 @@ Component({
           await this.stepOutputRst(rst.steps)
           app.event.emit("openInvitation")
         },
+        bless: async () => {
+          await this.stepOutputRst(rst.steps)
+          await this.generBlankCommand()
+          wx.navigateTo({ url: '../../pages/barrage/barrage' })
+        },
         reopen: async () => {
           await this.stepOutputRst(rst.steps)
           app.event.emit("openInvitation")

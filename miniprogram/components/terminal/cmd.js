@@ -18,6 +18,14 @@ const cmds = {
       { label: '重启成功!', type: 'success' },
     ]
   },
+  'bless': {
+    type: 'stepDebugging',
+    detail: 'bless',
+    steps: [
+      { label: '跳转准备中...', type: 'default' },
+      { label: '跳转成功！', type: 'success' },
+    ]
+  },
   'help': {
     type: 'textListShow',
     detail: 'help',
@@ -26,8 +34,9 @@ const cmds = {
     listDetail: [
       { id: 1, icon: "😀", cmd: { name: 'start', des: '打开邀请函' } },
       { id: 2, icon: "😁", cmd: { name: 'reopen', des: '再看一遍邀请函' } },
-      { id: 3, icon: "😋", cmd: { name: 'clear', des: '清空控制台' } },
-      { id: 4, icon: "🙃", cmd: { name: 'help', des: '帮助' } }
+      { id: 3, icon: "🖖", cmd: { name: 'bless', des: '送上祝福' } },
+      { id: 4, icon: "😋", cmd: { name: 'clear', des: '清空控制台' } },
+      { id: 5, icon: "🙃", cmd: { name: 'help', des: '帮助' } }
     ]
   },
   'clear': {
