@@ -1,0 +1,7 @@
+.swiper-wrapper {
+    height: 100%;
+}
+
+.swiper-item {
+    height: 100%;
+}

@@ -1,0 +1,22 @@
+
+<swiper 
+    vertical="{{ true }}"
+    circular="{{ true }}"
+    easing-function="easeInOutCubic"
+    class="swiper-wrapper">
+    <block>
+        <swiper-item class="swiper-item item1">
+            <view class="swiper-item">1</view>
+        </swiper-item>
+    </block>
+    <block>
+        <swiper-item>
+            <view class="swiper-item item2">2</view>
+        </swiper-item>
+    </block>
+    <block>
+        <swiper-item>
+            <view class="swiper-item item3">3</view>
+        </swiper-item>
+    </block>
+</swiper>
