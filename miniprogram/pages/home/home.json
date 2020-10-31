@@ -5,7 +5,6 @@
     "loading": "/components/loading/loading",
     "code-type": "/components/code-type/code-type",
     "terminal": "/components/terminal/terminal",
-    "invitation": "/components/invitation/invitation",
-    "cheatsheet": "/components/cheatsheet/cheatsheet"
+    "invitation": "/components/invitation/invitation"
   }
 }
