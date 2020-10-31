@@ -1,4 +1,5 @@
-const { deepClone } = require("../utils/index");
+const { deepClone, getRandom } = require("../utils/index");
+const { randomNoneMatch } = require("../components/terminal/cmd")
 
 class Terminal {
   constructor() {
@@ -68,7 +69,15 @@ class Terminal {
 
       const rst = deepClone(cmds[lastCmd.cmd])
 
-      this.history[length - 1].rst = rst ? rst : { type: 'none', text: '没有找到相应的命令' }
+      if (rst) {
+        this.history[length - 1].rst = rst
+      } else {
+        const randoInd = getRandom(randomNoneMatch.length, 0)
+        console.log(randoInd)
+        this.history[length - 1].rst = { type: 'none', text: randomNoneMatch[randoInd] || '今天天气真好呀！' }  
+      }
+
+      // this.history[length - 1].rst = rst ? rst : { type: 'none', text: '没有找到相应的命令' }
       this.history[length - 1].isExed = true
 
       res(this)

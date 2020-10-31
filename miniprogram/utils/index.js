@@ -63,9 +63,15 @@ const randomHexColor = () => {
 	return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6);
 }
 
+// 随机数生成
+const getRandom = (max = 10, min = 0) => {
+  return Math.floor(Math.random() * (max - min) + min)
+}
+
 module.exports = {
   formateDate,
   deepClone,
   debounce,
-  randomHexColor
+  randomHexColor,
+  getRandom
 }

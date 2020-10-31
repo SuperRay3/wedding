@@ -1,7 +1,7 @@
 const computedBehavior = require("miniprogram-computed");
 const Terminal = require("../../class/terminal");
 const { StayBttomP, StayBttomO } = require("../../class/stayBottom");
-const cmds = require("./cmd");
+const { cmds } = require("./cmd");
 const { formateDate, debounce } = require("../../utils/index");
 const app = getApp()
 
@@ -21,7 +21,7 @@ Component({
     // 指令区域是否平滑滚动
     terminalScrollSmooth: true,
     // 命令输入框的 placeholder
-    placeholder: '输入 help 解锁更多玩法'
+    placeholder: '输入 [帮助] 解锁更多玩法'
   },
 
   lifetimes: {
