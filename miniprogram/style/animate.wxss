@@ -93,6 +93,39 @@
   transform-origin: center bottom;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-name: spin;
+  animation-name: spin;
+}
+
+.spin.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
 @-webkit-keyframes flash {
   from,
   50%,
