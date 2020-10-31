@@ -82,6 +82,11 @@
 
 .content-container .content-inside-photo {
   width: 100%;
+  height: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('https://7765-wedding-upx7w-1252574910.tcb.qcloud.la/10%E5%AF%B8%E5%8D%95%E7%89%87%20(2)%20(1)%20(1).jpg?sign=5f2c7aae218081bdd9568109cf61d862&t=1604130809');
 }
 
 .content-container .phrase {

@@ -9,14 +9,14 @@
             <view class="corner corner-bottom-left"></view>
             <view class="corner corner-bottom-right"></view>
             <view class="content-container">
-              <image class="content-img content-inside-photo" src="../../images/photo.jpeg" />
+              <view class="content-img content-inside-photo"></view>
               <view class="content-info">
                 <view class="content-info-flex">
-                  <view class="phrase">范默苒 & 雷佳良</view>
+                  <view class="phrase">雷佳良 & 范默苒</view>
                   <view class="phrase">{{date}}</view>
                   <view class="phrase" bind:tap="navToMapPage">
                     <text class="block-text">好运来（华林国际）</text>
-                    <text class="block-text">xxx 主题厅</text>
+                    <text class="block-text">金色大厅</text>
                   </view>
                 </view>
               </view>
