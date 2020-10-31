@@ -6,6 +6,9 @@ const app = getApp()
 Component({
   behaviors: [computedBehavior],
   data: {
+    loaded: false,
+    showBtn: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     loadingTxt: loadingTxt,
     currTimeInd: 0 // 当前时间走到的位置
   },
@@ -25,7 +28,28 @@ Component({
           this.getLoadingTxt(data.currTime)
         },
         finished: () => {
-          app.event.emit('showIndex')
+          this.setData({
+            loaded: true
+          })
+
+          wx.getStorage({
+            key: 'userInfo',
+            success: (data) =>{
+              if (data.data) app.event.emit('showIndex')
+              else {
+                this.setData({
+                  showBtn: true
+                })
+              }
+            },
+            fail: () => {
+              this.setData({
+                showBtn: true
+              })
+            }
+          })
+
+          
         }
       })
       loading.start()
@@ -42,6 +66,20 @@ Component({
           currTimeInd: ++currTimeInd
         })
       }
+    },
+
+    // 获取用户信息
+    bindGetUserInfo (e) {
+      // 缓存用户信息
+      wx.setStorage({
+        key: 'userInfo',
+        data: JSON.stringify(e.detail.userInfo),
+        success: () =>{
+          if (e.detail.userInfo) {
+            app.event.emit('showIndex')
+          }
+        }
+      })
     }
   }
 })

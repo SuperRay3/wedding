@@ -1,7 +1,13 @@
-let guest = '嘉宾'
 module.exports = {
-  code: 
-`饭：“婚礼所需准备的如何？”
+  getCode() {
+    const value = wx.getStorageSync('userInfo')
+    let guest = ''
+    try {
+      if (value) guest = JSON.parse(value).nickName
+    } catch (e) {
+      console.error('拼接自动输入内容失败！')
+    }
+    return `饭：“婚礼需要的东西准备的怎么样了？”
 雷雷雷： “我看一下啊～”
 // TODO
 1. 酒店、婚庆 ✅
@@ -24,5 +30,7 @@ module.exports = {
 雷雷雷：“写好了！我运行一下～”
 
 
-`,
+
+`
+  }
 }

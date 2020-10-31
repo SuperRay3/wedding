@@ -1,8 +1,12 @@
 <view class="main-wrapper">
   <view class="loading-wrapper">
     <view class="container">
-      <view class="text">{{currLoadingTxt.value}}</view>
-      <view class="bar" style="width:{{currVal}}%"></view>
+      <view class="text" wx:if="{{!loaded}}">{{currLoadingTxt.value}}</view>
+      <view class="bar" wx:if="{{!loaded}}" style="width:{{currVal}}%"></view>
+      <button 
+        wx:if="{{canIUse && showBtn}}"
+        open-type="getUserInfo" 
+        bindgetuserinfo="bindGetUserInfo"><text>去看看</text></button>
     </view>
   </view>
 </view>

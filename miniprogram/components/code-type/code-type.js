@@ -10,7 +10,6 @@ let stayBtO = null
 Component({
   behaviors: [computedBehavior],
   data: {
-    code: mockcode.code,
     currentCode: '',
     isCursorVisible: 1,
     // 代码容器需要滚动的高，用于实现一直滚动到底部
@@ -33,6 +32,7 @@ Component({
       stayBtP = new StayBttomP(this, 0, '#code-content')
       stayBtO = new StayBttomO(this, 'codeContentScrollTop')
       stayBtP.add(stayBtO)
+
       this.progressivelyTyping()
     },
     ready: function() {
@@ -45,6 +45,7 @@ Component({
   methods: {
     // 代码输入
     progressivelyTyping() {
+      const orgCode = mockcode.getCode()
       return new Promise((resolve) => {
         let count = 0, typingCount = 0, typing
         // 写代码每一帧的函数
@@ -52,7 +53,7 @@ Component({
           let randomNumber = Math.round(Math.random() * 6)
           // 模拟打字的随机速度
           if(count % 2 === 0 && randomNumber % 4 === 0){
-            this.setData({ currentCode: this.data.code.substring(0, typingCount) })
+            this.setData({ currentCode: orgCode.substring(0, typingCount) })
             typingCount++
 
             stayBtP.checkScroll()
@@ -64,7 +65,7 @@ Component({
           }
           count++
 
-          if (typingCount <= this.data.code.length) typing = setTimeout(() => { step() }, 16)
+          if (typingCount <= orgCode.length) typing = setTimeout(() => { step() }, 16)
           else {
             resolve()
             // 隐藏光标
