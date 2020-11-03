@@ -1,4 +1,13 @@
 @import '../../style/smartisan-note';
+@import '../../style/animate.wxss';
+
+.dely1 {
+  animation-delay: 1s;
+}
+
+.repeat6 {
+  animation-iteration-count: 6;
+}
 
 .wedding-invitation {
   z-index: 4;

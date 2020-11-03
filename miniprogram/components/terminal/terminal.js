@@ -21,7 +21,7 @@ Component({
     // 指令区域是否平滑滚动
     terminalScrollSmooth: true,
     // 命令输入框的 placeholder
-    placeholder: '输入 [帮助] 解锁更多玩法'
+    placeholder: '输入 [帮助] 解锁更多操作'
   },
 
   lifetimes: {
