@@ -1,0 +1,24 @@
+<view class="cover-content">
+    <view class="content-inside">
+        <view class="content-border">
+            <view class="corner corner-top-left"></view>
+            <view class="corner corner-top-right"></view>
+            <view class="corner corner-bottom-left"></view>
+            <view class="corner corner-bottom-right"></view>
+            <view class="content-container">
+                <view class="content-img bridegroom"></view>
+                <view class="content-info">
+                    <view class="content-info-flex">
+                        <view class="phrase">姓名：雷佳良</view>
+                        <view class="phrase">别号：雷雷雷</view>
+                        <view class="phrase">生辰：1995.06.**（🤭</view>
+                        <view class="phrase">星座：双子座（既不古灵又不精怪</view>
+                        <view class="phrase">职业：前端码农（不插电 bug 制造机</view>
+                        <view class="phrase">爱好：听着摇滚吃上一碗美味的面条，完后睡上足足的一觉。醒来随手翻两页闲书，把新读到的观点思想，记在心里，转身去找人抬杠～</view>
+                        <view class="phrase">特点：肤黑、体瘦、爱絮叨</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

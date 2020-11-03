@@ -1,0 +1,24 @@
+<view class="cover-content">
+    <view class="content-inside">
+        <view class="content-border">
+            <view class="corner corner-top-left"></view>
+            <view class="corner corner-top-right"></view>
+            <view class="corner corner-bottom-left"></view>
+            <view class="corner corner-bottom-right"></view>
+            <view class="content-container">
+                <view class="content-img bridegroom"></view>
+                <view class="content-info">
+                    <view class="content-info-flex">
+                        <view class="phrase">姓名：范默苒</view>
+                        <view class="phrase">别号：饭饭</view>
+                        <view class="phrase">生辰：1994.10.**（🤫</view>
+                        <view class="phrase">星座：天秤座</view>
+                        <view class="phrase">职业：</view>
+                        <view class="phrase">爱好：</view>
+                        <view class="phrase">特点：貌美、肤白、心善良</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

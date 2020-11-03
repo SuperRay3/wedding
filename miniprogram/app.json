@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/bride/bride",
+    "pages/bridegroom/bridegroom",
     "pages/home/home",
     "pages/map/map",
     "pages/barrage/barrage"

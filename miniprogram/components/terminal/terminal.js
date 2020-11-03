@@ -138,6 +138,16 @@ Component({
           await this.generBlankCommand()
           wx.navigateTo({ url: '../../pages/barrage/barrage' })
         },
+        bridegroom: async () => {
+          await this.stepOutputRst(rst.steps)
+          await this.generBlankCommand()
+          wx.navigateTo({ url: '../../pages/bridegroom/bridegroom' })
+        },
+        bride: async () => {
+          await this.stepOutputRst(rst.steps)
+          await this.generBlankCommand()
+          wx.navigateTo({ url: '../../pages/bride/bride' })
+        },
         reopen: async () => {
           await this.stepOutputRst(rst.steps)
           app.event.emit("openInvitation")
