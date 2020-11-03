@@ -1,0 +1,24 @@
+@import '../../style/smartisan-note';
+.cover-content {
+    height: 100%;
+}
+
+.content-container .content-img {
+    border-radius: 3px;
+    border: 1px solid #fff;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.content-img.mask {
+    margin-bottom: 30rpx;
+    padding-bottom: 150%;
+    background-image: url('https://7765-wedding-upx7w-1252574910.tcb.qcloud.la/SYXK4783.jpg?sign=ce0401ba4649cdbd244bc81fd8d05c4e&t=1604420502');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.phrase {
+    padding: 8rpx 0;
+}

@@ -1,0 +1,23 @@
+@import '../../style/smartisan-note';
+.cover-content {
+    height: 100%;
+}
+
+.content-container .content-img {
+    border-radius: 3px;
+    border: 1px solid #fff;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.content-info {
+    text-align: left;
+}
+
+.blank-line {
+    height: 1.5em;
+}
+
+.phrase {
+    padding: 8rpx 0;
+}

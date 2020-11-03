@@ -1,0 +1,21 @@
+<view class="cover-content">
+    <view class="content-inside">
+        <view class="content-border">
+            <view class="corner corner-top-left"></view>
+            <view class="corner corner-top-right"></view>
+            <view class="corner corner-bottom-left"></view>
+            <view class="corner corner-bottom-right"></view>
+            <view class="content-container">
+                <view class="content-info">
+                    <view class="content-info-flex">
+                        <view class="phrase">雷雷雷和饭饭在两人大三下学期（2016 年）走在了一起。当时在这方面没有任何经验的两个人现在甚至想不起来当初是如何开始的。不过有件事让雷雷雷印象深刻——徒步 18 公里返校。那时两个人刚在一起不到半个月，所以雷雷雷也就随口一说没抱多大希望。没想到饭饭一口答应，这让雷雷雷当即在内心高喊“这个女孩我没看错！”</view>
+                        <view class="blank-line"></view>
+                        <view class="phrase">也许是因为有这样一个“不同寻常”的开头，雷雷雷和饭饭两个人接下来的共同时光基本和“罗曼蒂克”没有了关系。诸如前一天定好第二天要去哪哪玩，最后变成饭饭坐在雷雷雷工位旁，两人各自敲键盘这样的事情数不胜数。</view>
+                        <view class="blank-line"></view>
+                        <view class="phrase">用“革命战友情”来形容二人的感情反而更加充分。</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

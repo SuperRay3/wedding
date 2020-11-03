@@ -1,0 +1,20 @@
+<view class="cover-content">
+    <view class="content-inside">
+        <view class="content-border">
+            <view class="corner corner-top-left"></view>
+            <view class="corner corner-top-right"></view>
+            <view class="corner corner-bottom-left"></view>
+            <view class="corner corner-bottom-right"></view>
+            <view class="content-container">
+                <view class="content-img mask"></view>
+                <view class="content-info">
+                    <view class="content-info-flex">
+                        <view class="phrase">2020 年</view>
+                        <view class="phrase">不平凡的开头，特别精彩的结尾。</view>
+                        <view class="phrase">致敬那场战争中的每一位英雄。</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

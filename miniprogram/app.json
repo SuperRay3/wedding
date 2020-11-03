@@ -1,10 +1,12 @@
 {
   "pages": [
-    "pages/bride/bride",
-    "pages/bridegroom/bridegroom",
     "pages/home/home",
     "pages/map/map",
-    "pages/barrage/barrage"
+    "pages/barrage/barrage",
+    "pages/bridegroom/bridegroom",
+    "pages/bride/bride",
+    "pages/couple/couple",
+    "pages/2020/2020"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

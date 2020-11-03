@@ -6,7 +6,7 @@
       <button 
         wx:if="{{canIUse && showBtn}}"
         open-type="getUserInfo" 
-        bindgetuserinfo="bindGetUserInfo"><text>去看看</text></button>
+        bindgetuserinfo="bindGetUserInfo"><text></text></button>
     </view>
   </view>
 </view>
