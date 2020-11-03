@@ -7,8 +7,7 @@ module.exports = {
     } catch (e) {
       console.error('拼接自动输入内容失败！')
     }
-    return `
-饭饭：“婚礼需要的东西准备的怎么样了？”
+    return `饭饭：“婚礼需要的东西准备的怎么样了？”
 雷雷雷： “我看一下啊～”
 // TODO
 1. 酒店、婚庆 ✅
