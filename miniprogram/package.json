@@ -11,6 +11,6 @@
   "dependencies": {
     "miniprogram-barrage": "^1.1.0",
     "miniprogram-computed": "^2.1.1",
-    "prismjs": "^1.19.0"
+    "prismjs": "^1.23.0"
   }
 }
